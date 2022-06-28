@@ -1,6 +1,6 @@
 # -RUKAVINAET'S BLOG- repository
 
-Hi, and wellcome to the official GitHub repository of my blog, located at; https://rukavinaet.blog.
+Hi, and welcome to the official GitHub repository of my blog, located at; https://rukavinaet.blog.
 
 ## Write Your story, get heard!
 Submit your story to stories@rukavinaet.blog

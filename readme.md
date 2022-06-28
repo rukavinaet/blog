@@ -1,4 +1,4 @@
-# -RUKAVINAET'S BLOG- repository
+# -RUKAVINAET'S BLOG-
 
 Hi, and welcome to the official GitHub repository of my blog, located at; https://rukavinaet.blog.
 

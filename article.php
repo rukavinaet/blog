@@ -8,10 +8,10 @@ if(isset($_GET['ID'])){
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
 
-    echo $row['articleName'];
+    if (mysqli_num_rows($result)==0) { header("Location: /"); }
 }
 else{
-    echo("An error occured.");
+    header("Location: /");
 }
 ?>
 

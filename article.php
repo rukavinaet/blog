@@ -1,13 +1,14 @@
 <?php
-if(isset($_GET['ID'])){
+if (isset($_GET['ID'])) {
     require_once 'con.php';
     $ID = mysqli_real_escape_string($conn, $_GET['ID']);
     $sql = "SELECT * FROM `blog_article` WHERE articleID = '$ID' ";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
-    if (mysqli_num_rows($result)==0) { header("Location: /"); }
-}
-else{
+    if (mysqli_num_rows($result) == 0) {
+        header("Location: /");
+    }
+} else {
     header("Location: /");
 }
 ?>
@@ -17,32 +18,94 @@ else{
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title><?php echo $row['articleName'] ?></title> 
-    <meta name="description" content="<?php echo $row['ArticleMetaDesc'] ?>"> 
-    <meta property="og:title" content="Home - Page"> 
-    <meta property="og:url" content="https://www.example.com/page"> 
-    <meta property="og:description" content="OG Page Description"> 
-    <meta property="og:image" content="/path/to/image">
-    <meta property="og:image:alt" content="OG Image Description">
+    <title><?php echo $row['articleName'] ?></title>
+    <meta name="description" content="<?php echo $row['ArticleMetaDesc'] ?>">
+    <meta property="og:title" content="<?php echo $row['articleName'] ?>">
+    <meta property="og:url" content="https://rukavinaet.blog/<?php echo $row['articleID'] ?>">
+    <meta property="og:description" content="<?php echo $row['ArticleMetaDesc'] ?>">
+    <meta property="og:image" content="<?php echo $row['ArticleImage'] ?>">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="large-image-twitter.jpg"> 
-    <link rel="canonical" href="https://www.example.com/page"> 
+    <meta name="twitter:card" content="<?php echo $row['ArticleImage'] ?>">
+    <link rel="canonical" href="https://rukavinaet.blog/<?php echo $row['articleID'] ?>">
     <link rel="icon" href="/favicon.ico">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest"> 
-    <meta name="theme-color" content="#FF00FF"> >
-    <link rel="stylesheet" href="/styles/css/styles.css"> 
-    <link rel="stylesheet" href="/styles/css/print.css" media="print">
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        height: 64px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .23);
+    }
+
+    .header-all {
+        height: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-inline: 25px;
+    }
+
+    .logo h1 {
+        font-size: 1.2em;
+    }
+
+    .logo-menu {
+        display: flex;
+        align-items: center;
+    }
+
+    .menu {
+        padding-left: 40px;
+    }
+
+    .menu ul li {
+        display: inline-block;
+        list-style: none;
+        padding-left: 20px;
+        font-size: .75em;
+        line-height: 1rem;
+    }
+
+    .button button {
+        height: 55px;
+        width: 130px;
+    }
+
+    .product-up {
+        display: block;
+        position: absolute;
+        height: 400px;
+        width: 100%;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .23);
+        background-color: aqua;
+    }
+</style>
 
 <body>
-    <!-- Content -->
-    <script src="js/app.js"></script> <!-- TODO: Update app entry point -->
-    <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script> <!-- TODO: Add Modernizr js -->
-    <script src="/assets/js/xy-polyfill.js" nomodule></script>
-    <script src="/assets/js/script.js" type="module"></script>
+    <header>
+        <div class="header-all">
+            <div class="logo-menu">
+                <div class="logo">
+                    <h1>RUKAVINAET'S Blog</h1>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">Latest stories</a></li>
+                        <li><a href="#">Product updates</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="button">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="product-up"></div>
+    </header>
 
 </body>
 

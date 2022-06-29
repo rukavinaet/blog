@@ -75,13 +75,21 @@ if (isset($_GET['ID'])) {
         width: 130px;
     }
 
-    .product-up {
+    #product-up {
         display: block;
         position: absolute;
-        height: 400px;
+        height: 0px;
         width: 100%;
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .23);
         background-color: aqua;
+        transition: .2s ease-in-out;
+    }
+    #prod-menu-con{
+        height: inherit;
+        opacity: 0%;
+        display:block;
+        transition: .6s ease-in-out;
+        visibility: hidden;
     }
 </style>
 
@@ -95,17 +103,41 @@ if (isset($_GET['ID'])) {
                 <div class="menu">
                     <ul>
                         <li><a href="#">Latest stories</a></li>
-                        <li><a href="#">Product updates</a></li>
+                        <li><a onclick="expandmenu();">Product updates</a></li>
                     </ul>
                 </div>
             </div>
+            <script>
+                function expandmenu(){
+                    if(document.getElementById("product-up").style.height == "400px"){
+                        document.getElementById("product-up").style.height = "0px"
+                        document.getElementById("prod-menu-con").style.opacity = "0%"
+                        document.getElementById("prod-menu-con").style.visibility = "hidden"
+                    }
+                    else{
+                        document.getElementById("product-up").style.height = "400px"
+                        document.getElementById("prod-menu-con").style.opacity = "100%"
+                        document.getElementById("prod-menu-con").style.visibility = "visible"
+
+                    }
+                }
+            </script>
 
             <div class="button">
                 <button>Subscribe</button>
             </div>
         </div>
-        <div class="product-up"></div>
+        <div id="product-up">
+            <div id="prod-menu-con">
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 1</li>
+                    <li>Item 1</li>
+                </ul>
+            </div>
+        </div>
     </header>
+    <a href="sdsdssaddsa">asssa</a>
 
 </body>
 

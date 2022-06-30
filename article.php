@@ -9,6 +9,11 @@ if (isset($_GET['ID'])) {
         header("Location: /");
     }
 } else {
+    $one = $_GET['CAT'];
+    header("Location: c.php?ID=" . $one);
+}
+if (isset($_GET['CAT'])) {
+} else {
     header("Location: /");
 }
 ?>
@@ -34,11 +39,12 @@ if (isset($_GET['ID'])) {
     * {
         margin: 0;
         padding: 0;
-        
+
     }
-    body{
+
+    body {
         height: 200vh;
-        
+
     }
 
     header {
@@ -83,7 +89,8 @@ if (isset($_GET['ID'])) {
         height: 55px;
         width: 130px;
     }
-    #product-click{
+
+    #product-click {
         width: 100%;
         height: 100%;
         background-color: transparent;
@@ -101,23 +108,25 @@ if (isset($_GET['ID'])) {
         background-color: aqua;
         transition: .2s ease-in-out;
     }
-    #prod-menu-con{
+
+    #prod-menu-con {
         height: inherit;
         opacity: 0%;
-        display:block;
+        display: block;
         transition: .6s ease-in-out;
         visibility: hidden;
     }
-    .article_body{
+
+    .article_body {
         padding-top: 70px;
     }
 </style>
 
 <body>
     <div class="article_body">
-    <a href="sdsdssaddsa">asssa</a>
+        <p>Article Title: <?php echo $row['articleName'] ?></p>
     </div>
-    
+
     <header>
         <div class="header-all">
             <div class="logo-menu">
@@ -132,14 +141,13 @@ if (isset($_GET['ID'])) {
                 </div>
             </div>
             <script>
-                function expandmenu(){
-                    if(document.getElementById("product-up").style.height == "400px"){
+                function expandmenu() {
+                    if (document.getElementById("product-up").style.height == "400px") {
                         document.getElementById("product-up").style.height = "0px"
                         document.getElementById("prod-menu-con").style.opacity = "0%"
                         document.getElementById("prod-menu-con").style.visibility = "hidden"
                         document.getElementById("product-click").style.display = "none"
-                    }
-                    else{
+                    } else {
                         document.getElementById("product-up").style.height = "400px"
                         document.getElementById("prod-menu-con").style.opacity = "100%"
                         document.getElementById("product-click").style.display = "block"
@@ -163,8 +171,8 @@ if (isset($_GET['ID'])) {
                 </ul>
             </div>
         </div>
-        
-        
+
+
     </header>
 
 </body>

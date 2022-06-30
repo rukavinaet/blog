@@ -34,11 +34,20 @@ if (isset($_GET['ID'])) {
     * {
         margin: 0;
         padding: 0;
+        
+    }
+    body{
+        height: 200vh;
+        
     }
 
     header {
         height: 64px;
+        position: fixed;
+        top: 0;
+        width: 100%;
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .23);
+        background-color: white;
     }
 
     .header-all {
@@ -74,6 +83,14 @@ if (isset($_GET['ID'])) {
         height: 55px;
         width: 130px;
     }
+    #product-click{
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        position: fixed;
+        top: 465px;
+        display: none;
+    }
 
     #product-up {
         display: block;
@@ -91,9 +108,16 @@ if (isset($_GET['ID'])) {
         transition: .6s ease-in-out;
         visibility: hidden;
     }
+    .article_body{
+        padding-top: 70px;
+    }
 </style>
 
 <body>
+    <div class="article_body">
+    <a href="sdsdssaddsa">asssa</a>
+    </div>
+    
     <header>
         <div class="header-all">
             <div class="logo-menu">
@@ -113,10 +137,12 @@ if (isset($_GET['ID'])) {
                         document.getElementById("product-up").style.height = "0px"
                         document.getElementById("prod-menu-con").style.opacity = "0%"
                         document.getElementById("prod-menu-con").style.visibility = "hidden"
+                        document.getElementById("product-click").style.display = "none"
                     }
                     else{
                         document.getElementById("product-up").style.height = "400px"
                         document.getElementById("prod-menu-con").style.opacity = "100%"
+                        document.getElementById("product-click").style.display = "block"
                         document.getElementById("prod-menu-con").style.visibility = "visible"
 
                     }
@@ -127,6 +153,7 @@ if (isset($_GET['ID'])) {
                 <button>Subscribe</button>
             </div>
         </div>
+        <div id="product-click" onclick="expandmenu();"></div>
         <div id="product-up">
             <div id="prod-menu-con">
                 <ul>
@@ -136,8 +163,9 @@ if (isset($_GET['ID'])) {
                 </ul>
             </div>
         </div>
+        
+        
     </header>
-    <a href="sdsdssaddsa">asssa</a>
 
 </body>
 

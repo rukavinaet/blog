@@ -235,39 +235,142 @@ if (isset($_GET['ID'])) {
         margin: auto;
         border-radius: 5px;
     }
-    .header-mobile{
-    display: none;
-  }
+
+    .header-mobile {
+        display: none;
+    }
 
     .article_body {
         padding-top: 70px;
     }
+
     @media all and (max-width: 800px) {
-        header{
-           
-        height: 64px;
+        header {
+
+            height: 64px;
         }
-  .header-desktop {
-    display: none;
-  }
-  .header-mobile{
-    display: block;
-  }
-  .header-mobo-all{
-    display: flex;
-    height: 64px;
-    justify-content: flex-start;
-  }
-  .header-mobo-all button{
-    background-color: transparent;
-    width: 40px;
-    height: 40px;
-    margin: auto 0px;
-  }
-  .header-mobo-all h3{
-    margin: auto 0px;
-  }
-}
+
+        .header-desktop {
+            display: none;
+        }
+
+        .header-mobile {
+            display: block;
+        }
+
+        .header-mobo-all {
+            display: flex;
+            height: 64px;
+            justify-content: flex-start;
+        }
+
+        .header-mobo-all button {
+            background-color: transparent;
+            width: 64px;
+            height: 64px;
+            margin: auto 0px;
+            border: none;
+        }
+
+        .header-mobo-all img {
+            width: 28px;
+            opacity: 70%;
+            padding-top: 5px;
+        }
+
+        .header-mobo-all a {
+            margin: auto 0px;
+        }
+
+        #header-expand {
+            display: block;
+            position: fixed;
+            width: 80%;
+            left: -80%;
+            transition: .1s;
+            height: 100%;
+            top: 0;
+            background-color: white;
+        }
+
+        .header-expand-upper {
+            display: flex;
+            height: 64px;
+            justify-content: flex-start;
+            border-bottom: 1px solid black;
+        }
+
+        .header-expand-upper button {
+            background-color: transparent;
+            width: 64px;
+            height: 64px;
+            margin: auto 0px;
+            border: none;
+        }
+
+        .header-expand-upper img {
+            width: 28px;
+            opacity: 70%;
+            padding-top: 5px;
+        }
+
+        .header-expand-upper a {
+            margin: auto 0px;
+        }
+
+        #shadow-mobo {
+            display: block;
+            position: fixed;
+            width: 20%;
+            height: 100%;
+            right: -20%;
+            top: 0;
+            background-color: black;
+            transition: .1s;
+            opacity: 60%;
+        }
+        .emailbox{
+            overflow: auto;
+        }
+        .mail{
+            padding-top: 100px;
+        }
+
+        #sub {
+            position: fixed;
+            display: none;
+            justify-content: center;
+            background-color: #000000a3;
+            width: 100%;
+            height: 100%;
+            top: 0;
+        }
+
+        #sub_s {
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            background-color: #000000a3;
+            width: 100%;
+            height: 100%;
+            top: 0;
+        }
+
+        .emailbox {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            margin: auto;
+            border-radius: 0px;
+        }
+        
+
+        .header-expand-menu {
+            overflow-y: auto;
+            height: 600px;
+            background-color: #5f6368;
+        }
+    }
 </style>
 
 <body>
@@ -379,9 +482,54 @@ if (isset($_GET['ID'])) {
             </div>
         </div>
         <div class="header-mobile">
+            <script>
+                function togglemenu() {
+                    if (document.getElementById("header-expand").style.left == "0%") {
+                        document.getElementById("header-expand").style.left = "-80%"
+                        document.getElementById("shadow-mobo").style.right = "-20%"
+                    } else {
+                        document.getElementById("shadow-mobo").style.right = "0%"
+                        document.getElementById("header-expand").style.left = "0%";
+                    }
+                }
+            </script>
             <div class="header-mobo-all">
-                <button onclick="togglemenu();"><img src="/static/menu_open.svg" alt=""></button><h3>RUKAVINAET's BLOG</h3>
+                <button onclick="togglemenu();"><img src="/static/menu_open.svg" alt=""></button>
+                <a href="https://rukavinaet.blog" style="opacity: 70%;color:black;text-decoration:none;font-size:9px;">
+                    <h1>
+                        <span style="color: red;">@rukavinaet's</span> blog
+                    </h1>
+                </a>
             </div>
+            <div id="header-expand">
+                <div class="header-expand-upper">
+                    <button onclick="togglemenu();"><img src="/static/close.svg" alt=""></button>
+                    <a href="https://rukavinaet.blog" style="opacity: 70%;color:black;text-decoration:none;font-size:9px;">
+                        <h1>
+                            <span style="color: red;">@rukavinaet's</span> blog
+                        </h1>
+                    </a>
+                </div>
+                <div class="header-expand-menu">
+                    <ul>
+                        <li><a href="#">Latest stories</a></li>
+                        <li>
+                            <details>
+                                <summary>Around this blog</summary>
+                                <ul>
+                                    <li>test</li>
+                                    <li>test</li>
+                                    <li>test</li>
+                                </ul>
+                            </details>
+                        </li>
+                    </ul>
+                </div>
+                <div class="button" style="display: flex;">
+                    <button style="width: 80%;margin:auto;" onclick="showsub();">Subscribe</button>
+                </div>
+            </div>
+            <div onclick="togglemenu();" id="shadow-mobo"></div>
         </div>
 
 
@@ -453,11 +601,17 @@ if (isset($_GET['ID'])) {
             cursor: pointer;
             font-size: 15px;
         }
-        .input-text{
+
+        .input-text {
             border: 1px solid #d0d0d0;
             border-radius: 5px;
-height: 30px;
-padding-inline: 5px;
+            height: 30px;
+            padding-inline: 5px;
+        }
+        @media all and (max-width: 800px){
+            .sub_b {
+            height: 64px;
+        }
         }
     </style>
     <div id="sub">
@@ -474,7 +628,7 @@ padding-inline: 5px;
                 <div class="form">
                     <form action="" method="post">
                         <input required class="input-text" type="text" name="fname" id="" placeholder="First name" autofocus><br><br>
-                        <input required class="input-text" type="email" name="email" id="" placeholder="Email adress"><br>
+                        <input required class="input-text" type="email" name="email" id="" placeholder="Email address"><br>
 
                         <p style="font-size: 13px;opacity:50%;max-width: 290px;">Sign up to receive news and other stories from rukavinaet.blog & partner websites.
                             Your information will be used in accordance with

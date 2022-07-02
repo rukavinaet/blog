@@ -89,9 +89,9 @@ if (isset($_GET['ID'])) {
         display: inline-block;
         list-style: none;
         padding-left: 20px;
-        font-size: .88em;
+        font-size: .86em;
         line-height: 1rem;
-        letter-spacing: .05em;
+        letter-spacing: .04em;
     }
     .menu ul li a{
         color: #5f6368;

@@ -1,1 +1,2 @@
-#thisisatest
+RewriteEngine On
+RewriteRule ^p/([^/]+)?$ article.php?ID=$1 [L,QSA]

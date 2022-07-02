@@ -3,13 +3,10 @@ if (isset($_GET['ID'])) {
     require_once 'con.php';
     $ID = mysqli_real_escape_string($conn, $_GET['ID']);
 
-    $sqla = "SELECT * FROM `blog_article` WHERE ArticleCategoryID  = '$ID' ";
-    $resulta = mysqli_query($conn, $sqla);
-    $rowa = mysqli_fetch_array($resulta);
+    $sql = "SELECT * FROM `blog_article` WHERE ArticleCategoryID  = '$ID' ";
+    $result = mysqli_query($conn, $sqla);
+    $row = mysqli_fetch_array($resulta);
 
-    $sql = "SELECT * FROM `blog_category` WHERE categoryID = '$ID' ";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
     if (mysqli_num_rows($result) == 0) {
         header("Location: /");
     }

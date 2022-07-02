@@ -9,13 +9,9 @@ if (isset($_GET['ID'])) {
         header("Location: /");
     }
 } else {
-    $one = $_GET['CAT'];
-    header("Location: c.php?ID=" . $one);
-}
-if (isset($_GET['CAT'])) {
-} else {
     header("Location: /");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -34,11 +30,23 @@ if (isset($_GET['CAT'])) {
     <meta name="twitter:card" content="<?php echo $row['ArticleImage'] ?>">
     <link rel="canonical" href="https://rukavinaet.blog/<?php echo $row['articleID'] ?>">
     <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/meta/font.css">
+    <style>
+        #active {
+            cursor: pointer;
+            color: red;
+            text-decoration-line: underline;
+            text-decoration-color: red;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 24px;
+        }
+    </style>
 </head>
 <style>
     * {
         margin: 0;
         padding: 0;
+        font-family: Roboto;
 
     }
 
@@ -65,7 +73,7 @@ if (isset($_GET['CAT'])) {
     }
 
     .logo h1 {
-        font-size: 1.2em;
+        font-size: 1.3em;
     }
 
     .logo-menu {
@@ -74,15 +82,16 @@ if (isset($_GET['CAT'])) {
     }
 
     .menu {
-        padding-left: 40px;
+        padding-left: 47px;
     }
 
     .menu ul li {
         display: inline-block;
         list-style: none;
         padding-left: 20px;
-        font-size: .75em;
+        font-size: .88em;
         line-height: 1rem;
+        letter-spacing: .05em;
     }
 
     .button button {
@@ -131,12 +140,12 @@ if (isset($_GET['CAT'])) {
         <div class="header-all">
             <div class="logo-menu">
                 <div class="logo">
-                    <h1>RUKAVINAET'S Blog</h1>
+                    <h1>RUKAVINAET'S <span style="color: #5f6368;">Blog</span></h1>
                 </div>
                 <div class="menu">
                     <ul>
-                        <li><a href="#">Latest stories</a></li>
-                        <li><a onclick="expandmenu();">Product updates</a></li>
+                        <li><a href="/">Latest stories</a></li>
+                        <li><a onclick="expandmenu();" id="active">Product updates</a></li>
                     </ul>
                 </div>
             </div>

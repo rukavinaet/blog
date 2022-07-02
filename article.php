@@ -58,6 +58,7 @@ if (isset($_GET['ID'])) {
 
     .header-desktop {
         height: inherit;
+        display: block;
 
     }
 
@@ -161,7 +162,7 @@ if (isset($_GET['ID'])) {
         width: 100%;
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .23);
         background-color: white;
-        transition: .4s ease-in-out;
+        transition: .2s;
     }
 
     #prod-menu-con {
@@ -234,11 +235,39 @@ if (isset($_GET['ID'])) {
         margin: auto;
         border-radius: 5px;
     }
-
+    .header-mobile{
+    display: none;
+  }
 
     .article_body {
         padding-top: 70px;
     }
+    @media all and (max-width: 800px) {
+        header{
+           
+        height: 64px;
+        }
+  .header-desktop {
+    display: none;
+  }
+  .header-mobile{
+    display: block;
+  }
+  .header-mobo-all{
+    display: flex;
+    height: 64px;
+    justify-content: flex-start;
+  }
+  .header-mobo-all button{
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    margin: auto 0px;
+  }
+  .header-mobo-all h3{
+    margin: auto 0px;
+  }
+}
 </style>
 
 <body>
@@ -347,6 +376,11 @@ if (isset($_GET['ID'])) {
                     </div>
 
                 </div>
+            </div>
+        </div>
+        <div class="header-mobile">
+            <div class="header-mobo-all">
+                <button onclick="togglemenu();"><img src="/static/menu_open.svg" alt=""></button><h3>RUKAVINAET's BLOG</h3>
             </div>
         </div>
 

@@ -93,9 +93,29 @@ if (isset($_GET['ID'])) {
         line-height: 1rem;
         letter-spacing: .05em;
     }
+    .menu ul li a{
+        color: #5f6368;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .menu ul li a:hover{
+        color: black;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .menu ul li a:active{
+        cursor: pointer;
+        text-decoration: none;
+    }
+    #world{
+        color: #5f6368;
+    }
+    #world:hover{
+        color: black;
+    }
 
     .button button {
-        height: 55px;
+        height: 50px;
         width: 130px;
     }
 
@@ -114,11 +134,37 @@ if (isset($_GET['ID'])) {
         height: 0px;
         width: 100%;
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .23);
-        background-color: aqua;
+        background-color: white;
         transition: .2s ease-in-out;
     }
 
     #prod-menu-con {
+        height: inherit;
+        opacity: 0%;
+        display: block;
+        transition: .6s ease-in-out;
+        visibility: hidden;
+    }
+    #world-click {
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        position: fixed;
+        top: 465px;
+        display: none;
+    }
+
+    #world-up {
+        display: block;
+        position: absolute;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .23);
+        background-color: white;
+        transition: .2s ease-in-out;
+    }
+
+    #world-menu-con {
         height: inherit;
         opacity: 0%;
         display: block;
@@ -146,6 +192,7 @@ if (isset($_GET['ID'])) {
                     <ul>
                         <li><a href="/">Latest stories</a></li>
                         <li><a onclick="expandmenu();" id="active">Product updates</a></li>
+                        <li><a onclick="expandmenu_world();"id="world">Around the world</a></li>
                     </ul>
                 </div>
             </div>
@@ -161,6 +208,32 @@ if (isset($_GET['ID'])) {
                         document.getElementById("prod-menu-con").style.opacity = "100%"
                         document.getElementById("product-click").style.display = "block"
                         document.getElementById("prod-menu-con").style.visibility = "visible"
+                        document.getElementById("world-up").style.height = "0px"
+                        document.getElementById("world-menu-con").style.opacity = "0%"
+                        document.getElementById("world-menu-con").style.visibility = "hidden"
+                        document.getElementById("world").style.color = "#5f6368"
+                        document.getElementById("world-click").style.display = "none"
+
+                    }
+                }
+                function expandmenu_world() {
+                    if (document.getElementById("world-up").style.height == "400px") {
+                        document.getElementById("world-up").style.height = "0px"
+                        document.getElementById("world-menu-con").style.opacity = "0%"
+                        document.getElementById("world-menu-con").style.visibility = "hidden"
+                        document.getElementById("world-click").style.display = "none"
+                        document.getElementById("world").style.color = "#5f6368"
+
+                    } else {
+                        document.getElementById("world-up").style.height = "400px"
+                        document.getElementById("world-menu-con").style.opacity = "100%"
+                        document.getElementById("world-click").style.display = "block"
+                        document.getElementById("world-menu-con").style.visibility = "visible"
+                        document.getElementById("product-up").style.height = "0px"
+                        document.getElementById("prod-menu-con").style.opacity = "0%"
+                        document.getElementById("prod-menu-con").style.visibility = "hidden"
+                        document.getElementById("product-click").style.display = "none"
+                        document.getElementById("world").style.color = "black"
 
                     }
                 }
@@ -175,6 +248,16 @@ if (isset($_GET['ID'])) {
             <div id="prod-menu-con">
                 <ul>
                     <li>Item 1</li>
+                    <li>Item 1</li>
+                    <li>Item 1</li>
+                </ul>
+            </div>
+        </div>
+        <div id="world-click" onclick="expandmenu_world();"></div>
+        <div id="world-up">
+            <div id="world-menu-con">
+                <ul>
+                    <li>World</li>
                     <li>Item 1</li>
                     <li>Item 1</li>
                 </ul>

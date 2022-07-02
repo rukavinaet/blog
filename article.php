@@ -55,7 +55,8 @@ if (isset($_GET['ID'])) {
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .23);
         background-color: white;
     }
-    .header-desktop{
+
+    .header-desktop {
         height: inherit;
 
     }
@@ -391,6 +392,38 @@ if (isset($_GET['ID'])) {
             margin: auto;
             text-align: center;
             font-size: 22px;
+            padding-top: 20px;
+        }
+
+        .form {
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        .form form input {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .sub_b {
+            width: 180px;
+            margin: auto;
+            margin-top: auto;
+            margin-top: 55px;
+            background: red;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            height: 50px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .input-text{
+            border: 1px solid #d0d0d0;
+            border-radius: 5px;
+height: 30px;
+padding-inline: 5px;
         }
     </style>
     <div id="sub">
@@ -402,14 +435,18 @@ if (isset($_GET['ID'])) {
             <div class="mail">
                 <img src="/static/mail.png" alt="">
                 <p>The latest stories from <span style="color: red;">@rukavinaet</span>,<br> in your inbox.</p>
+                <br>
+                <br>
                 <div class="form">
                     <form action="" method="post">
-                        <input type="text" name="fname" id=""><br>
-                        <input type="email" name="email" id="">
+                        <input required class="input-text" type="text" name="fname" id="" placeholder="First name" autofocus><br><br>
+                        <input required class="input-text" type="email" name="email" id="" placeholder="Email adress"><br>
+
                         <p style="font-size: 13px;opacity:50%;max-width: 290px;">Sign up to receive news and other stories from rukavinaet.blog & partner websites.
                             Your information will be used in accordance with
-                            this <a target="_blank" href="https://rukavinaet.com/legal/privacy#blog">privacy policy</a>. You may opt out at any time.</p>
-                        <input type="submit" value="Subscribe">
+                            this <a target="_blank" href="https://rukavinaet.com/legal/privacy#blog">privacy policy</a>. You may opt out at any time.</p><br>
+                        <br>
+                        <input required type="submit" value="Subscribe" class="sub_b">
 
 
                     </form>
@@ -447,32 +484,8 @@ if (isset($_GET['ID'])) {
             </div>
         </div>
     </div>');
+    } else {
     }
-    else{
-        echo (' <div id="sub_s">
-        <div class="emailbox">
-            <div class="close">
-                <button onclick="showsub_s();"><img src="/static/close.svg" alt="" srcset=""></button>
-
-            </div>
-            <div class="mail">
-                <img src="/static/mail_no.png" alt="">
-                <p style="margin-top:100px;">Uh oh....<br>Looks like something went wrong!<br>Please report this!</p>
-                <a style="margin:auto;" href="https:/r-et.cc/report-invalid-subscription"target="_blank"><button style="width: 180px;
-                margin: auto;
-                  margin-top: auto;
-                margin-top: 100px;
-                background: red;
-                border: none;
-                border-radius: 5px;
-                color: white;
-                height: 50px;cursor:pointer;
-                font-size: 15px;"onclick="showsub_s();">Report this error!</button></a>
-              
-            </div>
-        </div>
-    </div>');
-    } 
     ?>
 
 

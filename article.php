@@ -62,7 +62,7 @@ if (isset($_GET['ID'])) {
 
     }
 
-    .header-all {
+    .header-desktop-all {
         height: inherit;
         display: flex;
         align-items: center;
@@ -70,25 +70,25 @@ if (isset($_GET['ID'])) {
         padding-inline: 25px;
     }
 
-    .logo h1 {
+    .header-desktop-logo h1 {
         font-size: 1.3em;
     }
 
-    .logo h1 a {
+    .header-desktop-logo h1 a {
         color: black;
         text-decoration: none;
     }
 
-    .logo-menu {
+    .header-desktop-logo-menuflex {
         display: flex;
         align-items: center;
     }
 
-    .menu {
+    .header-desktop-menu {
         padding-left: 47px;
     }
 
-    .menu ul li {
+    .header-desktop-menu ul li {
         display: inline-block;
         list-style: none;
         padding-left: 20px;
@@ -97,30 +97,24 @@ if (isset($_GET['ID'])) {
         letter-spacing: .04em;
     }
 
-    .menu ul li a {
+    .header-desktop-menu ul li a {
         color: #5f6368;
         cursor: pointer;
         text-decoration: none;
     }
 
-    .menu ul li a:hover {
+    .header-desktop-menu ul li a:hover {
         color: black;
         cursor: pointer;
         text-decoration: none;
     }
 
-    .menu ul li a:active {
+    .header-desktop-menu ul li a:active {
         cursor: pointer;
         text-decoration: none;
     }
 
-
-
-    #world:hover {
-        color: black;
-    }
-
-    .button button {
+    .mail-button button {
         height: 50px;
         width: 126px;
         background-color: #ff0000c4;
@@ -131,12 +125,12 @@ if (isset($_GET['ID'])) {
         cursor: pointer;
     }
 
-    .button button:hover {
+    .mail-button button:hover {
         background-color: red;
 
     }
 
-    #arrow {
+    #header-desktop-menu-arrow {
         border: solid black;
         border-width: 0 2px 2px 0;
         display: inline-block;
@@ -146,7 +140,7 @@ if (isset($_GET['ID'])) {
         transition: 0.2s;
     }
 
-    #product-click {
+    #header-desktop-click-remove-header {
         width: 100%;
         height: 100%;
         background-color: transparent;
@@ -155,7 +149,7 @@ if (isset($_GET['ID'])) {
         display: none;
     }
 
-    #product-up {
+    #header-desktop-menu-expand-all {
         display: block;
         position: absolute;
         height: 0px;
@@ -165,7 +159,7 @@ if (isset($_GET['ID'])) {
         transition: .2s;
     }
 
-    #prod-menu-con {
+    #header-desktop-menu-expand-content {
         height: inherit;
         opacity: 0%;
         display: block;
@@ -175,40 +169,40 @@ if (isset($_GET['ID'])) {
         visibility: hidden;
     }
 
-    .menu-list {
+    .header-desktop-menu-expand-content-list {
         display: flex;
         justify-content: space-evenly;
     }
 
-    .menu-list ul {
+    .header-desktop-menu-expand-content-list ul {
         list-style: none;
         width: 15%;
         opacity: 70%;
         line-height: 27px;
     }
 
-    .menu-list ul li a {
+    .header-desktop-menu-expand-content-list ul li a {
         text-decoration: none;
         opacity: 70%;
         color: inherit;
 
     }
 
-    .menu-list ul li a:hover {
+    .header-desktop-menu-expand-content-list ul li a:hover {
         color: black;
         opacity: 100%;
     }
 
-    .menu-list ul hr {
+    .header-desktop-menu-expand-content-list ul hr {
         margin: 15px 0px;
         opacity: 30%;
     }
 
-    .menu-list ul p {
+    .header-desktop-menu-expand-content-list ul p {
         text-transform: uppercase;
     }
 
-    #sub {
+    #mail-subcribe-box {
         position: fixed;
         display: none;
         justify-content: center;
@@ -218,7 +212,7 @@ if (isset($_GET['ID'])) {
         top: 0;
     }
 
-    #sub_s {
+    #mail-subcribe-box_success {
         position: fixed;
         display: flex;
         justify-content: center;
@@ -228,7 +222,7 @@ if (isset($_GET['ID'])) {
         top: 0;
     }
 
-    .emailbox {
+    .header-uni-emailbox {
         width: 440px;
         height: 580px;
         background-color: white;
@@ -246,7 +240,6 @@ if (isset($_GET['ID'])) {
 
     @media all and (max-width: 800px) {
         header {
-
             height: 64px;
         }
 
@@ -282,7 +275,7 @@ if (isset($_GET['ID'])) {
             margin: auto 0px;
         }
 
-        #header-expand {
+        #header-mobo-expand {
             display: block;
             position: fixed;
             width: 80%;
@@ -293,14 +286,14 @@ if (isset($_GET['ID'])) {
             background-color: white;
         }
 
-        .header-expand-upper {
+        .header-mobo-expand-upper {
             display: flex;
             height: 64px;
             justify-content: flex-start;
             border-bottom: 1px solid black;
         }
 
-        .header-expand-upper button {
+        .header-mobo-expand-upper button {
             background-color: transparent;
             width: 64px;
             height: 64px;
@@ -308,17 +301,17 @@ if (isset($_GET['ID'])) {
             border: none;
         }
 
-        .header-expand-upper img {
+        .header-mobo-expand-upper img {
             width: 28px;
             opacity: 70%;
             padding-top: 5px;
         }
 
-        .header-expand-upper a {
+        .header-mobo-expand-upper a {
             margin: auto 0px;
         }
 
-        #shadow-mobo {
+        #shadow-from-mobo-header {
             display: block;
             position: fixed;
             width: 20%;
@@ -329,14 +322,16 @@ if (isset($_GET['ID'])) {
             transition: .1s;
             opacity: 60%;
         }
-        .emailbox{
+
+        .header-uni-emailbox {
             overflow: auto;
         }
-        .mail{
+
+        .mail {
             padding-top: 100px;
         }
 
-        #sub {
+        #mail-subcribe-box {
             position: fixed;
             display: none;
             justify-content: center;
@@ -346,7 +341,7 @@ if (isset($_GET['ID'])) {
             top: 0;
         }
 
-        #sub_s {
+        #mail-subcribe-box_success {
             position: fixed;
             display: flex;
             justify-content: center;
@@ -356,16 +351,16 @@ if (isset($_GET['ID'])) {
             top: 0;
         }
 
-        .emailbox {
+        .header-uni-emailbox {
             width: 100%;
             height: 100%;
             background-color: white;
             margin: auto;
             border-radius: 0px;
         }
-        
 
-        .header-expand-menu {
+
+        .header-mobo-expand-menu {
             overflow-y: auto;
             height: 600px;
             background-color: #5f6368;
@@ -380,14 +375,14 @@ if (isset($_GET['ID'])) {
 
     <header>
         <div class="header-desktop">
-            <div class="header-all">
-                <div class="logo-menu">
-                    <div class="logo">
+            <div class="header-desktop-all">
+                <div class="header-desktop-logo-menuflex">
+                    <div class="header-desktop-logo">
                         <a href="https://rukavinaet.blog" style="opacity: 70%;">
                             <h1>Blog by
                         </a><a href="https://rukavinaet.com"><span style="color: red;">@rukavinaet</span></h1></a>
                     </div>
-                    <div class="menu">
+                    <div class="header-desktop-menu">
                         <ul>
                             <li><a href="/">Latest stories</a></li>
                             <li><a onclick="expandmenu();" style="cursor: pointer;
@@ -395,49 +390,49 @@ if (isset($_GET['ID'])) {
             text-decoration-line: underline;
             text-decoration-color: red;
             text-decoration-thickness: 2px;
-            text-underline-offset: 24px"><span style="margin-right: 11px;">Around the blog</span><i id="arrow"></i></a></li>
+            text-underline-offset: 24px"><span style="margin-right: 11px;">Around the blog</span><i id="header-desktop-menu-arrow"></i></a></li>
                         </ul>
                     </div>
                 </div>
                 <script>
                     function expandmenu() {
-                        if (document.getElementById("product-up").style.height == "400px") {
-                            document.getElementById("product-up").style.height = "0px"
-                            document.getElementById("prod-menu-con").style.opacity = "0%"
-                            document.getElementById("prod-menu-con").style.visibility = "hidden"
-                            document.getElementById("product-click").style.display = "none"
-                            document.getElementById("arrow").style.transform = "rotate(45deg)"
+                        if (document.getElementById("header-desktop-menu-expand-all").style.height == "400px") {
+                            document.getElementById("header-desktop-menu-expand-all").style.height = "0px"
+                            document.getElementById("header-desktop-menu-expand-content").style.opacity = "0%"
+                            document.getElementById("header-desktop-menu-expand-content").style.visibility = "hidden"
+                            document.getElementById("header-desktop-click-remove-header").style.display = "none"
+                            document.getElementById("header-desktop-menu-arrow").style.transform = "rotate(45deg)"
                         } else {
-                            document.getElementById("product-up").style.height = "400px"
-                            document.getElementById("prod-menu-con").style.opacity = "100%"
-                            document.getElementById("product-click").style.display = "block"
-                            document.getElementById("arrow").style.transform = "rotate(-135deg)"
-                            document.getElementById("prod-menu-con").style.visibility = "visible"
+                            document.getElementById("header-desktop-menu-expand-all").style.height = "400px"
+                            document.getElementById("header-desktop-menu-expand-content").style.opacity = "100%"
+                            document.getElementById("header-desktop-click-remove-header").style.display = "block"
+                            document.getElementById("header-desktop-menu-arrow").style.transform = "rotate(-135deg)"
+                            document.getElementById("header-desktop-menu-expand-content").style.visibility = "visible"
 
                         }
                     }
 
                     function showsub() {
-                        if (document.getElementById("sub").style.display == "flex") {
-                            document.getElementById("sub").style.display = "none"
+                        if (document.getElementById("mail-subcribe-box").style.display == "flex") {
+                            document.getElementById("mail-subcribe-box").style.display = "none"
                         } else {
-                            document.getElementById("sub").style.display = "flex"
+                            document.getElementById("mail-subcribe-box").style.display = "flex"
                         }
                     }
 
                     function showsub_s() {
-                        document.getElementById("sub_s").style.display = "none";
+                        document.getElementById("mail-subcribe-box_success").style.display = "none";
                     }
                 </script>
 
-                <div class="button">
+                <div class="mail-button">
                     <button onclick="showsub();">Subscribe</button>
                 </div>
             </div>
-            <div id="product-click" onclick="expandmenu();"></div>
-            <div id="product-up">
-                <div id="prod-menu-con">
-                    <div class="menu-list">
+            <div id="header-desktop-click-remove-header" onclick="expandmenu();"></div>
+            <div id="header-desktop-menu-expand-all">
+                <div id="header-desktop-menu-expand-content">
+                    <div class="header-desktop-menu-expand-content-list">
                         <ul>
                             <p>products</p>
                             <hr>
@@ -484,12 +479,12 @@ if (isset($_GET['ID'])) {
         <div class="header-mobile">
             <script>
                 function togglemenu() {
-                    if (document.getElementById("header-expand").style.left == "0%") {
-                        document.getElementById("header-expand").style.left = "-80%"
-                        document.getElementById("shadow-mobo").style.right = "-20%"
+                    if (document.getElementById("header-mobo-expand").style.left == "0%") {
+                        document.getElementById("header-mobo-expand").style.left = "-80%"
+                        document.getElementById("shadow-from-mobo-header").style.right = "-20%"
                     } else {
-                        document.getElementById("shadow-mobo").style.right = "0%"
-                        document.getElementById("header-expand").style.left = "0%";
+                        document.getElementById("shadow-from-mobo-header").style.right = "0%"
+                        document.getElementById("header-mobo-expand").style.left = "0%";
                     }
                 }
             </script>
@@ -501,16 +496,16 @@ if (isset($_GET['ID'])) {
                     </h1>
                 </a>
             </div>
-            <div id="header-expand">
-                <div class="header-expand-upper">
-                    <button onclick="togglemenu();"><img src="/static/close.svg" alt=""></button>
+            <div id="header-mobo-expand">
+                <div class="header-mobo-expand-upper">
+                    <button onclick="togglemenu();"><img src="/static/mail-sub-close.svg" alt=""></button>
                     <a href="https://rukavinaet.blog" style="opacity: 70%;color:black;text-decoration:none;font-size:9px;">
                         <h1>
                             <span style="color: red;">@rukavinaet's</span> blog
                         </h1>
                     </a>
                 </div>
-                <div class="header-expand-menu">
+                <div class="header-mobo-expand-menu">
                     <ul>
                         <li><a href="#">Latest stories</a></li>
                         <li>
@@ -525,11 +520,11 @@ if (isset($_GET['ID'])) {
                         </li>
                     </ul>
                 </div>
-                <div class="button" style="display: flex;">
+                <div class="mail-button" style="display: flex;">
                     <button style="width: 80%;margin:auto;" onclick="showsub();">Subscribe</button>
                 </div>
             </div>
-            <div onclick="togglemenu();" id="shadow-mobo"></div>
+            <div onclick="togglemenu();" id="shadow-from-mobo-header"></div>
         </div>
 
 
@@ -538,24 +533,24 @@ if (isset($_GET['ID'])) {
 
     </header>
     <style>
-        .close {
+        .mail-sub-close {
             justify-content: end;
             display: flex;
         }
 
-        .close button {
+        .mail-sub-close button {
             background-color: transparent;
             border: none;
             margin: 10px;
             cursor: pointer;
         }
 
-        .close button img {
+        .mail-sub-close button img {
             opacity: 70%;
             height: 26px;
         }
 
-        .close button img:hover {
+        .mail-sub-close button img:hover {
             opacity: 100%;
         }
 
@@ -583,13 +578,8 @@ if (isset($_GET['ID'])) {
             padding-top: 20px;
         }
 
-        .form form input {
-            width: 100%;
-            border-radius: 5px;
-        }
-
         .sub_b {
-            width: 180px;
+            width: 100%;
             margin: auto;
             margin-top: auto;
             margin-top: 55px;
@@ -605,19 +595,21 @@ if (isset($_GET['ID'])) {
         .input-text {
             border: 1px solid #d0d0d0;
             border-radius: 5px;
-            height: 30px;
-            padding-inline: 5px;
+            height: 35px;
+            padding-inline: 5px;  width: 100%;
+            border-radius: 5px;
         }
-        @media all and (max-width: 800px){
+
+        @media all and (max-width: 800px) {
             .sub_b {
-            height: 64px;
-        }
+                height: 64px;
+            }
         }
     </style>
-    <div id="sub">
-        <div class="emailbox">
-            <div class="close">
-                <button onclick="showsub();"><img src="/static/close.svg" alt="" srcset=""></button>
+    <div id="mail-subcribe-box">
+        <div class="header-uni-emailbox">
+            <div class="mail-sub-close">
+                <button onclick="showsub();"><img src="/static/mail-sub-close.svg" alt="" srcset=""></button>
 
             </div>
             <div class="mail">
@@ -648,10 +640,10 @@ if (isset($_GET['ID'])) {
         //echo ("Hello " . $_POST["email"]);
         $test = $_POST["email"];
 
-        echo (' <div id="sub_s">
-        <div class="emailbox">
-            <div class="close">
-                <button onclick="showsub_s();"><img src="/static/close.svg" alt="" srcset=""></button>
+        echo (' <div id="mail-subcribe-box_success">
+        <div class="header-uni-emailbox">
+            <div class="mail-sub-close">
+                <button onclick="showsub_s();"><img src="/static/mail-sub-close.svg" alt="" srcset=""></button>
 
             </div>
             <div class="mail">

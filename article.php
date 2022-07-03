@@ -520,7 +520,7 @@ if (isset($_GET['ID'])) {
                         </li>
                     </ul>
                 </div>
-                <div class="button" style="display: flex;">
+                <div class="mail-button" style="display: flex;">
                     <button style="width: 80%;margin:auto;" onclick="showsub();">Subscribe</button>
                 </div>
             </div>
@@ -579,7 +579,7 @@ if (isset($_GET['ID'])) {
         }
 
         .sub_b {
-            width: 180px;
+            width: 100%;
             margin: auto;
             margin-top: auto;
             margin-top: 55px;
@@ -595,7 +595,7 @@ if (isset($_GET['ID'])) {
         .input-text {
             border: 1px solid #d0d0d0;
             border-radius: 5px;
-            height: 30px;
+            height: 35px;
             padding-inline: 5px;  width: 100%;
             border-radius: 5px;
         }

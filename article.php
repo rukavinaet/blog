@@ -365,6 +365,14 @@ if (isset($_GET['ID'])) {
             height: 600px;
             background-color: #5f6368;
         }
+
+        .header-mobo-expand-menu ul {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0px 40px;
+            list-style: none;
+        }
     }
 </style>
 
@@ -490,18 +498,18 @@ if (isset($_GET['ID'])) {
             </script>
             <div class="header-mobo-all">
                 <button onclick="togglemenu();"><img src="/static/menu_open.svg" alt=""></button>
-                <a href="https://rukavinaet.blog" style="opacity: 70%;color:black;text-decoration:none;font-size:9px;">
+                <a href="https://rukavinaet.blog" style="color:black;text-decoration:none;font-size:9px;">
                     <h1>
-                        <span style="color: red;">@rukavinaet's</span> blog
+                        <span style="color: red;">@rukavinaet's</span> <span style="opacity: 70%;">blog</span>
                     </h1>
                 </a>
             </div>
             <div id="header-mobo-expand">
                 <div class="header-mobo-expand-upper">
                     <button onclick="togglemenu();"><img src="/static/mail-sub-close.svg" alt=""></button>
-                    <a href="https://rukavinaet.blog" style="opacity: 70%;color:black;text-decoration:none;font-size:9px;">
+                    <a href="https://rukavinaet.blog" style="color:black;text-decoration:none;font-size:9px;">
                         <h1>
-                            <span style="color: red;">@rukavinaet's</span> blog
+                            <span style="color: red;">@rukavinaet's</span> <span style="opacity: 70%;"> blog</span>
                         </h1>
                     </a>
                 </div>
@@ -596,7 +604,8 @@ if (isset($_GET['ID'])) {
             border: 1px solid #d0d0d0;
             border-radius: 5px;
             height: 35px;
-            padding-inline: 5px;  width: 100%;
+            padding-inline: 5px;
+            width: 100%;
             border-radius: 5px;
         }
 

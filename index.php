@@ -6,7 +6,7 @@ if (isset($_GET['ID'])) {
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
     if (mysqli_num_rows($result) == 0) {
-        include 'index_view.php';
+        header("Location: /");
     }
     else{
         include 'article.php';

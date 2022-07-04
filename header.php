@@ -494,11 +494,13 @@
                 if (document.getElementById("header-mobo-all-l").style.display == "none") {
                     document.getElementById("header-mobo-all-l").style.display = "flex"
                     document.getElementById("header-mobo-search").style.display = "none"
+                    document.getElementById("changeimgmobo").style.opacity = "20%"
                     document.getElementById("changeimgmobo").src = "/static/search.svg"
                 } else {
                     document.getElementById("header-mobo-all-l").style.display = "none"
                     document.getElementById("changeimgmobo").src = "/static/mail-sub-close.svg"
                     document.getElementById("header-mobo-search").style.display = "flex"
+                    document.getElementById("changeimgmobo").style.opacity = "100%"
                 }
 
 
@@ -518,13 +520,13 @@
 
             </div>
 
-            <div id="header-mobo-search" style="width: 100%;display: none;justify-content: end;">
+            <div id="header-mobo-search" style="display: none;justify-content: end;">
                 <form action="search.php" method="POST" style="display: flex;">
-                    <input autofocus placeholder="Search for an article" type="text" style="font-size:18px;margin: auto;width: 350px;height: 30px;border: none;border-bottom: 1px solid #111213;">
+                    <input autofocus placeholder="Search for an article" type="text" style="width:90%;font-size:18px;margin: auto;height: 30px;border: none;">
                     <input type="submit" value="" hidden>
                 </form>
             </div>
-            <button onclick="showsearch_mobo();"><img id="changeimgmobo" src="/static/search.svg" alt=""></button>
+            <button onclick="showsearch_mobo();"><img id="changeimgmobo" style="opacity:20%;" src="/static/search.svg" alt=""></button>
         </div>
         <div id="header-mobo-expand">
             <div class="header-mobo-expand-upper">

@@ -147,13 +147,13 @@
         display: block;
         transition: .1s ease-in-out;
 
-        padding: 25px;
         visibility: hidden;
     }
 
     .header-desktop-menu-expand-content-list {
         display: flex;
         justify-content: space-evenly;
+        padding: 40px 150px;
     }
 
     .header-desktop-menu-expand-content-list ul {

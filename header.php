@@ -1,4 +1,8 @@
 <style>
+    *:focus {
+    outline: none;
+}
+
     header {
         height: 64px;
         position: fixed;
@@ -194,7 +198,7 @@
         padding-top: 70px;
     }
 
-    @media all and (max-width: 800px) {
+    @media all and (max-width: 1285px) {
         header {
             height: 64px;
         }
@@ -210,7 +214,11 @@
         .header-mobo-all {
             display: flex;
             height: 64px;
-            justify-content: flex-start;
+            justify-content: space-between;
+        }
+
+        #header-mobo-all-l {
+            display: flex;
         }
 
         .header-mobo-all button {
@@ -385,91 +393,90 @@
 
             <div class="mail-search-button">
                 <style>
-                    #visi-search{
+                    #visi-search {
                         visibility: hidden;
                     }
                 </style>
                 <form id="visi-search" style="height: min-content;
-margin: auto;" action="search.php" method="post">
-                    <input id="animateinput" placeholder="Search for an article" style="height: 35px;
-margin: auto;
-width: 0px;transition:.2s;
-border: 1px 0px 0px 0px antiquewhite;
-border: none;
-  border-bottom-color: currentcolor;
-  border-bottom-style: none;
-  border-bottom-width: medium;
-border-bottom: 1px solid #5f636847;
-padding: 0px 5px;
-background-color: whitesmoke;
-border-radius: 5px;
-font-size: 18px;
-" type="text" name="SearchQ" id="">
-                    <input style="display: none;" type="submit" value="Search">
-                </form>
-                <script>
-                    function showsearch() {
-                    if(document.getElementById("visi-search").style.visibility == "visible"){
-                        document.getElementById("visi-search").style.visibility = "hidden";
-                        document.getElementById("animateinput").style.width = "0px";
+        margin: auto;" action="search.php" method="post">
+                            <input id="animateinput" placeholder="Search for an article" style="height: 35px;
+        margin: auto;
+        width: 0px;transition:.5s;
+        border: 1px 0px 0px 0px antiquewhite;
+        border: none;
+        border-bottom-color: currentcolor;
+        border-bottom-style: none;
+        border-bottom-width: medium;
+        border-bottom: 1px solid #5f636847;
+        padding: 0px 5px;
+        background-color: whitesmoke;
+        border-radius: 5px;
+        font-size: 18px;
+        " type="text" name="SearchQ" id="">
+                            <input style="display: none;" type="submit" value="Search">
+                        </form>
+                        <script>
+                            function showsearch() {
+                                if (document.getElementById("visi-search").style.visibility == "visible") {
+                                    document.getElementById("visi-search").style.visibility = "hidden";
+                                    document.getElementById("animateinput").style.width = "0px";
 
-                    }
-                     else {
-                        document.getElementById("animateinput").style.width = "900px";
-                        document.getElementById("visi-search").style.visibility = "visible";
-                    }
-                }
-                </script>
-                <button onclick="showsearch();" style="background-color: transparent;width: 60px;"><img style="height: 25px;opacity: 60%;" src="/static/search.svg" alt=""></button>
-                <button onclick="showsub();">Subscribe</button>
-            </div>
-        </div>
-        <div id="header-desktop-click-remove-header" onclick="expandmenu();"></div>
-        <div id="header-desktop-menu-expand-all">
-            <div id="header-desktop-menu-expand-content">
-                <div class="header-desktop-menu-expand-content-list">
-                    <ul>
-                        <p>products</p>
-                        <hr>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-                    </ul>
-                    <ul>
-                        <p>Technology</p>
-                        <hr>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-
-                    </ul>
-                    <ul>
-                        <p>Inside web</p>
-                        <hr>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-
-                    </ul>
-                    <ul>
-                        <p>around the globe</p>
-                        <hr>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-                        <li><a href="#">Test 1</a></li>
-
-                    </ul>
+                                } else {
+                                    document.getElementById("animateinput").style.width = "500px";
+                                    document.getElementById("visi-search").style.visibility = "visible";
+                                }
+                            }
+                        </script>
+                        <button onclick="showsearch();" style="background-color: transparent;width: 60px;"><img style="height: 25px;opacity: 60%;" src="/static/search.svg" alt=""></button>
+                        <button onclick="showsub();">Subscribe</button>
+                    </div>
                 </div>
+                <div id="header-desktop-click-remove-header" onclick="expandmenu();"></div>
+                <div id="header-desktop-menu-expand-all">
+                    <div id="header-desktop-menu-expand-content">
+                        <div class="header-desktop-menu-expand-content-list">
+                            <ul>
+                                <p>products</p>
+                                <hr>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+                            </ul>
+                            <ul>
+                                <p>Technology</p>
+                                <hr>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
 
-            </div>
-        </div>
+                            </ul>
+                            <ul>
+                                <p>Inside web</p>
+                                <hr>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+
+                            </ul>
+                            <ul>
+                                <p>around the globe</p>
+                                <hr>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 1</a></li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
     </div>
     <div class="header-mobile">
         <script>
@@ -482,14 +489,42 @@ font-size: 18px;
                     document.getElementById("header-mobo-expand").style.left = "0%";
                 }
             }
+
+            function showsearch_mobo() {
+                if (document.getElementById("header-mobo-all-l").style.display == "none") {
+                    document.getElementById("header-mobo-all-l").style.display = "flex"
+                    document.getElementById("header-mobo-search").style.display = "none"
+                    document.getElementById("changeimgmobo").src = "/static/search.svg"
+                } else {
+                    document.getElementById("header-mobo-all-l").style.display = "none"
+                    document.getElementById("changeimgmobo").src = "/static/mail-sub-close.svg"
+                    document.getElementById("header-mobo-search").style.display = "flex"
+                }
+
+
+
+
+            }
         </script>
         <div class="header-mobo-all">
-            <button onclick="togglemenu();"><img src="/static/menu_open.svg" alt=""></button>
-            <a href="https://rukavinaet.blog" style="color:black;text-decoration:none;font-size:9px;">
-                <h1>
-                    <span style="color: red;">@rukavinaet's</span> <span style="opacity: 70%;">blog</span>
-                </h1>
-            </a>
+            <div id="header-mobo-all-l">
+                <button onclick="togglemenu();"><img src="/static/menu_open.svg" alt=""></button>
+
+                <a href="https://rukavinaet.blog" style="color:black;text-decoration:none;font-size:9px;">
+                    <h1>
+                        <span style="color: red;">@rukavinaet's</span> <span style="opacity: 70%;">blog</span>
+                    </h1>
+                </a>
+
+            </div>
+
+            <div id="header-mobo-search" style="width: 100%;display: none;justify-content: end;">
+                <form action="search.php" method="POST" style="display: flex;">
+                    <input autofocus placeholder="Search for an article" type="text" style="font-size:18px;margin: auto;width: 350px;height: 30px;border: none;border-bottom: 1px solid #111213;">
+                    <input type="submit" value="" hidden>
+                </form>
+            </div>
+            <button onclick="showsearch_mobo();"><img id="changeimgmobo" src="/static/search.svg" alt=""></button>
         </div>
         <div id="header-mobo-expand">
             <div class="header-mobo-expand-upper">

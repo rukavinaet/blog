@@ -60,14 +60,17 @@ $row2 = mysqli_fetch_array($result2)
     <link rel="stylesheet" href="/styles/css/print.css" media="print">
 </head>
 <body>
-    <?php 
-    while($row = mysqli_fetch_array($result)){
-        echo "<p>Category: {$row['articleName']} </p>";
+    <div class="article_body">
+        <?php 
+        while($row = mysqli_fetch_array($result)){
+            echo "<p>Category: {$row['articleName']} </p>";
 
-    }
-        
-        
+        }
+            
+            
     ?>
+    </div>
+   
     
   
 </body>

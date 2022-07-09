@@ -56,7 +56,8 @@ else{
     <link rel="stylesheet" href="/styles/css/print.css" media="print">
 </head>
 <body>
-    <?php 
+<div class="article_body">
+<?php 
     while($row = mysqli_fetch_array($result)){
         echo "<p>Category: {$row['articleName']} </p>";
 
@@ -65,6 +66,9 @@ else{
         
     ?>
     
+</div>
+
+   
   
 </body>
 </html>

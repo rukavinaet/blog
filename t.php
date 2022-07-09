@@ -1,17 +1,13 @@
 <?php 
 require_once 'con.php';
-$ID = mysqli_real_escape_string($conn, $_GET['CAT']);
-$sql = "SELECT * FROM `blog_article` WHERE ArticleCategoryID = '$ID' ";
+$ID = mysqli_real_escape_string($conn, $_GET['topic']);
+$sql = "SELECT * FROM `blog_article` WHERE ArticleTopic = '$ID' ";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
     header("Location: /");
 }
 else{
 }
-
-$sql2 = "SELECT DisplayText FROM `blog_category` WHERE categoryID = '$ID' LIMIT 1";
-$result2 = mysqli_query($conn, $sql2);
-$row2 = mysqli_fetch_array($result2)
 ?>
 <style>
     #others{
@@ -36,7 +32,7 @@ $row2 = mysqli_fetch_array($result2)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Category: <?php echo $row2['DisplayText']; ?></title> <!-- TODO: update page title -->
+    <title>Topic: </title> <!-- TODO: update page title -->
     <script type="module">
             document.documentElement.classList.remove('no-js');
             document.documentElement.classList.add('js');

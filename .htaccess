@@ -1,6 +1,7 @@
 RewriteEngine On
 RewriteRule ^([a-zA-Z0-9]+)$ index.php?ID=$1
 RewriteRule ^c/([^/]+)?$ index.php?CAT=$1 [L,QSA]
+RewriteRule ^topic/([^/]+)?$ index.php?topic=$1 [L,QSA]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]

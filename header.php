@@ -101,15 +101,7 @@
 
     }
 
-    #header-desktop-menu-arrow {
-        border: solid black;
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        padding: 3px;
-        transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        transition: 0.2s;
-    }
+   
 
     #header-desktop-click-remove-header {
         width: 100%;
@@ -337,16 +329,26 @@
 
         .header-mobo-expand-menu {
             overflow-y: auto;
-            height: 600px;
-            background-color: #5f6368;
+            height: 80%;
         }
 
         .header-mobo-expand-menu ul {
             display: flex;
             justify-content: center;
             flex-direction: column;
-            padding: 0px 40px;
             list-style: none;
+            margin-top: 30px;
+        }
+        .header-mobo-expand-menu ul li {
+            display: flex;
+            justify-content: flex-start;
+
+        }
+        .header-mobo-expand-menu ul li a{
+            padding: 0px 40px;;
+            height: 60px;
+            width: 100%;text-decoration: none;
+color: #000000c9;
         }
     }
 </style>
@@ -361,13 +363,8 @@
                 </div>
                 <div class="header-desktop-menu">
                     <ul>
-                        <li><a href="/">Latest stories</a></li>
-                        <li><a onclick="expandmenu();" style="cursor: pointer;
-                color: black;
-                text-decoration-line: underline;
-                text-decoration-color: red;
-                text-decoration-thickness: 2px;
-                text-underline-offset: 24px"><span style="margin-right: 11px;">Around the blog</span><i id="header-desktop-menu-arrow"></i></a></li>
+                        <li><a id="index" href="/">Latest stories</a></li>
+                        <li><a id="others" onclick="expandmenu();"><span style="margin-right: 11px;">Around the blog</span><i id="header-desktop-menu-arrow"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -551,7 +548,10 @@
             <div class="header-mobo-expand-menu">
                 <ul>
                     <li><a href="#">Latest stories</a></li>
-                    <li><a href="/t/#"></a></li>
+                    <li><a href="/t/#">Topic 1</a></li>
+                    <li><a href="/t/#">Topic 2</a></li>
+                    <li><a href="/t/#">Topic 3</a></li>
+                    <li><a href="/t/#">Topic 4</a></li>
                 </ul>
             </div>
             <div class="mail-search-button" style="display: flex;">

@@ -42,6 +42,25 @@ $result = mysqli_query($conn, $sql);
     <link rel="stylesheet" href="/styles/css/styles.css"> <!-- TODO: Update styles -->
     <link rel="stylesheet" href="/styles/css/print.css" media="print">
 </head>
+<style>
+    #index{
+        cursor: pointer;
+                color: black;
+                text-decoration-line: underline;
+                text-decoration-color: red;
+                text-decoration-thickness: 2px;
+                text-underline-offset: 24px
+    }
+    #header-desktop-menu-arrow {
+        border: solid #5f6368;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transition: 0.2s;
+    }
+</style>
 
 <body>
     <!-- Content -->

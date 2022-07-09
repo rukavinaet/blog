@@ -15,6 +15,24 @@
     <link rel="canonical" href="https://rukavinaet.blog/<?php echo $row['articleID'] ?>">
     <link rel="icon" href="/favicon.ico">
 </head>
+<style>
+    #others{
+        cursor: pointer;
+                color: black;
+                text-decoration-line: underline;
+                text-decoration-color: red;
+                text-decoration-thickness: 2px;
+                text-underline-offset: 24px
+    } #header-desktop-menu-arrow {
+        border: solid black;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transition: 0.2s;
+    }
+</style>
 
 
 <body>

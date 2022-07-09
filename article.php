@@ -16,10 +16,8 @@ $result_similar = mysqli_query($conn, $sql_similar);
     <meta property="og:title" content="<?php echo $row['articleName'] ?>">
     <meta property="og:url" content="https://rukavinaet.blog/<?php echo $row['articleID'] ?>">
     <meta property="og:description" content="<?php echo $row['ArticleMetaDesc'] ?>">
-    <meta property="og:image" content="<?php echo $row['ArticleImage'] ?>">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="<?php echo $row['ArticleImage'] ?>">
     <link rel="canonical" href="https://rukavinaet.blog/<?php echo $row['articleID'] ?>">
     <link rel="icon" href="/favicon.ico">
 </head>
@@ -79,7 +77,10 @@ $result_similar = mysqli_query($conn, $sql_similar);
                     <button>Share</button>
                 </div>
                 <div class="article-image">
-                    <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/update_-_switch_to_android.max-1000x1000.jpg" alt="">
+                    <?php 
+                        $blob = $row['ArticleImage'];
+                    ?>
+                    <img src="data:image/png;base64,<?php echo base64_encode($blob) ?> "/img>;
                 </div>
                 <div class="article-html">
                 <p><?php echo $row['ArticleHTML'] ?></p>

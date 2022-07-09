@@ -1,4 +1,15 @@
+<head>
+<link rel="stylesheet" href="/meta/font.css">
+</head>
 <style>
+     * {
+        margin: 0;
+        padding: 0;
+        font-family: Roboto;
+    }
+    body {
+        height: 200vh;
+    }
     *:focus {
     outline: none;
 }
@@ -362,14 +373,14 @@
             </div>
             <script>
                 function expandmenu() {
-                    if (document.getElementById("header-desktop-menu-expand-all").style.height == "400px") {
+                    if (document.getElementById("header-desktop-menu-expand-all").style.height == "300px") {
                         document.getElementById("header-desktop-menu-expand-all").style.height = "0px"
                         document.getElementById("header-desktop-menu-expand-content").style.opacity = "0%"
                         document.getElementById("header-desktop-menu-expand-content").style.visibility = "hidden"
                         document.getElementById("header-desktop-click-remove-header").style.display = "none"
                         document.getElementById("header-desktop-menu-arrow").style.transform = "rotate(45deg)"
                     } else {
-                        document.getElementById("header-desktop-menu-expand-all").style.height = "400px"
+                        document.getElementById("header-desktop-menu-expand-all").style.height = "300px"
                         document.getElementById("header-desktop-menu-expand-content").style.opacity = "100%"
                         document.getElementById("header-desktop-click-remove-header").style.display = "block"
                         document.getElementById("header-desktop-menu-arrow").style.transform = "rotate(-135deg)"
@@ -436,7 +447,7 @@
                     <div id="header-desktop-menu-expand-content">
                         <div class="header-desktop-menu-expand-content-list">
                             <ul>
-                                <p>products</p>
+                                <p>projects</p>
                                 <hr>
                                 <li><a href="#">Test 1</a></li>
                                 <li><a href="#">Test 1</a></li>
@@ -540,16 +551,7 @@
             <div class="header-mobo-expand-menu">
                 <ul>
                     <li><a href="#">Latest stories</a></li>
-                    <li>
-                        <details>
-                            <summary>Around this blog</summary>
-                            <ul>
-                                <li>test</li>
-                                <li>test</li>
-                                <li>test</li>
-                            </ul>
-                        </details>
-                    </li>
+                    <li><a href="/t/#"></a></li>
                 </ul>
             </div>
             <div class="mail-search-button" style="display: flex;">

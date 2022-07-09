@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title><?php echo $row['DisplayText'] ?></title> <!-- TODO: update page title -->
+    <title>Category</title> <!-- TODO: update page title -->
     <script type="module">
             document.documentElement.classList.remove('no-js');
             document.documentElement.classList.add('js');
@@ -29,17 +29,6 @@
 </head>
 <body>
     <p>Category: <?php echo $row['DisplayText'] ?></p>
-    <p>Category: <?php echo $rowa['articleName'] ?></p>
-    <!-- Content -->
-    <script src="js/app.js"></script> <!-- TODO: Update app entry point -->
-    <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script> <!-- TODO: Add Modernizr js -->
-    <script src="/assets/js/xy-polyfill.js" nomodule></script>
-    <script src="/assets/js/script.js" type="module"></script>
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
+  
 </body>
 </html>

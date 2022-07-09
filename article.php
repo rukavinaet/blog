@@ -14,25 +14,13 @@
     <meta name="twitter:card" content="<?php echo $row['ArticleImage'] ?>">
     <link rel="canonical" href="https://rukavinaet.blog/<?php echo $row['articleID'] ?>">
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/meta/font.css">
 </head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        font-family: Roboto;
-    }
-    body {
-        height: 200vh;
-    }
-</style>
 
 
 <body>
     <div class="article_body">
         <p>Article Title: <?php echo $row['articleName'] ?></p>
     </div>
-    <?php include 'header.php'; ?>
 </body>
 
 </html>

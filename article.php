@@ -1,8 +1,8 @@
 <?php
 require_once 'con.php';
-$row_match = $row['ArticleCategoryID'];
+$row_match = $row['ArticleTopic'];
 $no_use = $row['articleID'];
-$sql_similar = "SELECT * FROM `blog_article` WHERE ArticleCategoryID = '$row_match' and NOT (articleID = '$no_use') ";
+$sql_similar = "SELECT * FROM `blog_article` WHERE ArticleTopic = '$row_match' and NOT (articleID = '$no_use') ";
 $result_similar = mysqli_query($conn, $sql_similar);
 ?>
 <!DOCTYPE html>
@@ -77,10 +77,8 @@ $result_similar = mysqli_query($conn, $sql_similar);
                     <button>Share</button>
                 </div>
                 <div class="article-image">
-                    <?php 
-                        $blob = $row['ArticleImage'];
-                    ?>
-                    <img src="data:image/png;base64,<?php echo base64_encode($blob) ?> "/img>;
+                   
+                    <img src="http://rstatic.cloud/image/<?php echo $row['ArticleImage'] ?>"></img>;
                 </div>
                 <div class="article-html">
                 <p><?php echo $row['ArticleHTML'] ?></p>
@@ -89,15 +87,18 @@ $result_similar = mysqli_query($conn, $sql_similar);
                     <p>Posted in:</p><a href="/c/<?php echo $row['ArticleCategoryID'] ?>"><?php echo $row['ArticleCategoryName'] ?></a>
 
                 </div>
+                <div class="noflex">
+                <hr>
+
+                </div>
 
             </div>
           
         </div>
-        <hr>
         <div class="more-articles">
         <?php 
         while($row_similar = mysqli_fetch_array($result_similar)){
-            echo "<p>Category: {$row_similar['articleName']} </p>";
+            echo "<p>{$row_similar['articleName']} </p>";
 
         }
             

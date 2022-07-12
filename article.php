@@ -22,23 +22,13 @@ $result_similar = mysqli_query($conn, $sql_similar);
     <link rel="icon" href="/favicon.ico">
 </head>
 <style>
-    #others {
+    #<?php echo $row['ArticleCategoryID'] ?> {
         cursor: pointer;
         color: black;
         text-decoration-line: underline;
         text-decoration-color: red;
         text-decoration-thickness: 2px;
         text-underline-offset: 24px
-    }
-
-    #header-desktop-menu-arrow {
-        border: solid black;
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        padding: 3px;
-        transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        transition: 0.2s;
     }
 </style>
 <style>
@@ -126,7 +116,7 @@ $result_similar = mysqli_query($conn, $sql_similar);
         <div class="article-cont">
             <div class="article-content">
                 <div class="categegory-link">
-                    <a class="categegory-link-a" href="/c/<?php echo $row['ArticleCategoryID'] ?>">
+                    <a class="categegory-link-a" href="/category/<?php echo $row['ArticleCategoryID'] ?>">
                         <p><?php echo strtoupper($row['ArticleCategoryName']) ?></p>
                     </a>
                 </div>
@@ -155,7 +145,7 @@ $result_similar = mysqli_query($conn, $sql_similar);
                     <p><?php echo $row['ArticleHTML'] ?></p>
                 </div>
                 <div class="articleposted">
-                    <p>Posted in:</p><a href="/c/<?php echo $row['ArticleCategoryID'] ?>"><?php echo $row['ArticleCategoryName'] ?></a>
+                    <p>Posted in:</p><a href="/category/<?php echo $row['ArticleCategoryID'] ?>"><?php echo $row['ArticleCategoryName'] ?></a>
 
                 </div>
                 <div class="noflex">

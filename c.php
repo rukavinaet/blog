@@ -14,21 +14,13 @@ $result2 = mysqli_query($conn, $sql2);
 $row2 = mysqli_fetch_array($result2)
 ?>
 <style>
-    #others{
+    #developers{
         cursor: pointer;
                 color: black;
                 text-decoration-line: underline;
                 text-decoration-color: red;
                 text-decoration-thickness: 2px;
                 text-underline-offset: 24px
-    } #header-desktop-menu-arrow {
-        border: solid black;
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        padding: 3px;
-        transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        transition: 0.2s;
     }
 </style>
 <!DOCTYPE html>

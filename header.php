@@ -101,70 +101,8 @@
 
     }
 
-   
 
-    #header-desktop-click-remove-header {
-        width: 100%;
-        height: 100%;
-        background-color: transparent;
-        position: fixed;
-        top: 465px;
-        display: none;
-    }
-
-    #header-desktop-menu-expand-all {
-        display: block;
-        position: absolute;
-        height: 0px;
-        width: 100%;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .23);
-        background-color: white;
-        transition: .2s;
-    }
-
-    #header-desktop-menu-expand-content {
-        height: inherit;
-        opacity: 0%;
-        display: block;
-        transition: .1s ease-in-out;
-
-        visibility: hidden;
-    }
-
-    .header-desktop-menu-expand-content-list {
-        display: flex;
-        justify-content: space-evenly;
-        padding: 40px 150px;
-    }
-
-    .header-desktop-menu-expand-content-list ul {
-        list-style: none;
-        width: 15%;
-        opacity: 70%;
-        line-height: 27px;
-    }
-
-    .header-desktop-menu-expand-content-list ul li a {
-        text-decoration: none;
-        opacity: 70%;
-        color: inherit;
-
-    }
-
-    .header-desktop-menu-expand-content-list ul li a:hover {
-        color: black;
-        opacity: 100%;
-    }
-
-    .header-desktop-menu-expand-content-list ul hr {
-        margin: 15px 0px;
-        opacity: 30%;
-    }
-
-    .header-desktop-menu-expand-content-list ul p {
-        text-transform: uppercase;
-    }
-
+    
     #mail-subcribe-box {
         position: fixed;
         display: none;
@@ -364,27 +302,18 @@ color: #000000c9;
                 <div class="header-desktop-menu">
                     <ul>
                         <li><a id="index" href="/">Latest stories</a></li>
-                        <li><a id="others" onclick="expandmenu();"><span style="margin-right: 11px;">Around the blog</span><i id="header-desktop-menu-arrow"></i></a></li>
+                        <?php 
+                        require_once 'con.php';
+                        $sql_menu = "SELECT * FROM `blog_category`";
+                        $result_menu = mysqli_query($conn, $sql_menu);
+                        while ($row_menu = mysqli_fetch_array($result_menu)) {
+                            echo "<li><a id='{$row_menu['categoryID']}' href='/category/{$row_menu['categoryID']}'>{$row_menu['DisplayText']}</a></li>";
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
             <script>
-                function expandmenu() {
-                    if (document.getElementById("header-desktop-menu-expand-all").style.height == "300px") {
-                        document.getElementById("header-desktop-menu-expand-all").style.height = "0px"
-                        document.getElementById("header-desktop-menu-expand-content").style.opacity = "0%"
-                        document.getElementById("header-desktop-menu-expand-content").style.visibility = "hidden"
-                        document.getElementById("header-desktop-click-remove-header").style.display = "none"
-                        document.getElementById("header-desktop-menu-arrow").style.transform = "rotate(45deg)"
-                    } else {
-                        document.getElementById("header-desktop-menu-expand-all").style.height = "300px"
-                        document.getElementById("header-desktop-menu-expand-content").style.opacity = "100%"
-                        document.getElementById("header-desktop-click-remove-header").style.display = "block"
-                        document.getElementById("header-desktop-menu-arrow").style.transform = "rotate(-135deg)"
-                        document.getElementById("header-desktop-menu-expand-content").style.visibility = "visible"
-
-                    }
-                }
 
                 function showsub() {
                     if (document.getElementById("mail-subcribe-box").style.display == "flex") {
@@ -438,52 +367,8 @@ color: #000000c9;
                         <button onclick="showsearch();" style="background-color: transparent;width: 60px;"><img style="height: 25px;opacity: 60%;" src="/static/search.svg" alt=""></button>
                         <button onclick="showsub();">Subscribe</button>
                     </div>
-                </div>
-                <div id="header-desktop-click-remove-header" onclick="expandmenu();"></div>
-                <div id="header-desktop-menu-expand-all">
-                    <div id="header-desktop-menu-expand-content">
-                        <div class="header-desktop-menu-expand-content-list">
-                            <ul>
-                                <p>projects</p>
-                                <hr>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-                            </ul>
-                            <ul>
-                                <p>Technology</p>
-                                <hr>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-
-                            </ul>
-                            <ul>
-                                <p>Inside web</p>
-                                <hr>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-
-                            </ul>
-                            <ul>
-                                <p>around the globe</p>
-                                <hr>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 1</a></li>
-
-                            </ul>
-                        </div>
-
-                    </div>
+                </div>>
+                   
                 </div>
     </div>
     <div class="header-mobile">
@@ -541,17 +426,21 @@ color: #000000c9;
                 <button onclick="togglemenu();"><img src="/static/mail-sub-close.svg" alt=""></button>
                 <a href="https://rukavinaet.blog" style="color:black;text-decoration:none;font-size:9px;">
                     <h1>
-                        <span>The</span> <span style="color: red;opacity: 70%;">RBlog</span>
+                        <span>The</span> <span style="color: red;">RBlog</span>
                     </h1>
                 </a>
             </div>
             <div class="header-mobo-expand-menu">
                 <ul>
                     <li><a href="#">Latest stories</a></li>
-                    <li><a href="/t/#">Topic 1</a></li>
-                    <li><a href="/t/#">Topic 2</a></li>
-                    <li><a href="/t/#">Topic 3</a></li>
-                    <li><a href="/t/#">Topic 4</a></li>
+                    <?php 
+                        require_once 'con.php';
+                        $sql_menu = "SELECT * FROM `blog_category`";
+                        $result_menu = mysqli_query($conn, $sql_menu);
+                        while ($row_menu = mysqli_fetch_array($result_menu)) {
+                            echo "<li><a id='{$row_menu['categoryID']}'href='/category/{$row_menu['categoryID']}'>{$row_menu['DisplayText']} </a></li>";
+                        }
+                        ?>
                 </ul>
             </div>
             <div class="mail-search-button" style="display: flex;">

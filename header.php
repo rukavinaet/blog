@@ -367,7 +367,7 @@ color: #000000c9;
                         <button onclick="showsearch();" style="background-color: transparent;width: 60px;"><img style="height: 25px;opacity: 60%;" src="/static/search.svg" alt=""></button>
                         <button onclick="showsub();">Subscribe</button>
                     </div>
-                </div>>
+                </div>
                    
                 </div>
     </div>

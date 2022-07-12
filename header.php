@@ -226,7 +226,7 @@
 
         .header-mobo-all button {
             background-color: transparent;
-            width: 64px;
+            width: 45px;
             height: 64px;
             margin: auto 0px;
             border: none;
@@ -262,7 +262,7 @@
 
         .header-mobo-expand-upper button {
             background-color: transparent;
-            width: 64px;
+            width: 45px;
             height: 64px;
             margin: auto 0px;
             border: none;
@@ -358,8 +358,8 @@ color: #000000c9;
             <div class="header-desktop-logo-menuflex">
                 <div class="header-desktop-logo">
                     <a href="https://rukavinaet.blog" style="opacity: 70%;">
-                        <h1>Blog by
-                    </a><a href="https://rukavinaet.com"><span style="color: red;">@rukavinaet</span></h1></a>
+                        <h1>The
+                    </a><a href="https://rukavinaet.blog"><span style="color: red;">RBlog</span></h1></a>
                 </div>
                 <div class="header-desktop-menu">
                     <ul>
@@ -522,7 +522,7 @@ color: #000000c9;
 
                 <a href="https://rukavinaet.blog" style="color:black;text-decoration:none;font-size:9px;">
                     <h1>
-                        <span style="color: red;">@rukavinaet's</span> <span style="opacity: 70%;">blog</span>
+                        <span>The</span> <span style="color: red;">RBlog</span>
                     </h1>
                 </a>
 
@@ -541,7 +541,7 @@ color: #000000c9;
                 <button onclick="togglemenu();"><img src="/static/mail-sub-close.svg" alt=""></button>
                 <a href="https://rukavinaet.blog" style="color:black;text-decoration:none;font-size:9px;">
                     <h1>
-                        <span style="color: red;">@rukavinaet's</span> <span style="opacity: 70%;"> blog</span>
+                        <span>The</span> <span style="color: red;opacity: 70%;">RBlog</span>
                     </h1>
                 </a>
             </div>

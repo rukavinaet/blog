@@ -48,13 +48,20 @@ $result_similar = mysqli_query($conn, $sql_similar);
         padding-top: 50px;
     }
     .article-content{
-        max-width: 1127px;
+        max-width: 1077px;
         width: 100%;
 
     }
     .categegory-link{
         display: flex;
         justify-content: flex-start;
+    }
+    .categegory-link-a{
+        text-decoration:none;
+        color: #202020;
+    }
+    .categegory-link-a:hover{
+        color: red;
     }
 </style>
 
@@ -65,20 +72,20 @@ $result_similar = mysqli_query($conn, $sql_similar);
                                 ?></p>-->
         <div class="article-cont">
             <div class="article-content">
-                <div class="categegory-link">
-                    <a href="/c/<?php echo $row['ArticleCategoryID'] ?>"><p><?php echo strtoupper($row['ArticleCategoryName']) ?></p></a>
+                <div class="categegory-link" style="margin-bottom: 25px;">
+                    <a class="categegory-link-a" href="/c/<?php echo $row['ArticleCategoryID'] ?>"><p style="letter-spacing: 1.5px;"><?php echo strtoupper($row['ArticleCategoryName']) ?></p></a>
                 </div>
-                <div class="title">
-                    <h1><?php echo $row['articleName'] ?></h1>
+                <div class="title" >
+                    <h1 style="margin: 0px 0px 45px 0px;color:#202020;line-height: 1.1785714286;font-size: 63px;font-weight:normal;letter-spacing: -1.2px;"><?php echo $row['articleName'] ?></h1>
                 </div>
-                <div class="mins-date-share">
-                    <p><?php echo date('d.m.Y', strtotime($row['ArticleDate'])) ?></p>
+                <div class="mins-date-share">  
+                    <p style="color: #5f6368;font-size: .9em;"><?php echo date('F j, Y', strtotime($row['ArticleDate'])) ?></p>
                     <p><?php echo $row['ArticleReadTime'] ?> min read</p>
                     <button>Share</button>
                 </div>
-                <div class="article-image">
+                <div class="article-image" style="display: flex;justify-content:center;">
                    
-                    <img src="http://rstatic.cloud/image/<?php echo $row['ArticleImage'] ?>"></img>;
+                    <img style="width: 100%;margin:0px 17px;" src="http://rstatic.cloud/blog/image/<?php echo $row['ArticleImage'] ?>"></img>;
                 </div>
                 <div class="article-html">
                 <p><?php echo $row['ArticleHTML'] ?></p>

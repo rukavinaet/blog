@@ -42,75 +42,138 @@ $result_similar = mysqli_query($conn, $sql_similar);
     }
 </style>
 <style>
-    .article-cont{
+    .article-cont {
         display: flex;
         justify-content: center;
         padding-top: 50px;
     }
-    .article-content{
+
+    .article-content {
         max-width: 1077px;
         width: 100%;
 
     }
-    .categegory-link{
+
+    .categegory-link {
         display: flex;
         justify-content: flex-start;
+        margin-bottom: 25px;
     }
-    .categegory-link-a{
-        text-decoration:none;
+
+    .categegory-link-a {
+        text-decoration: none;
         color: #202020;
     }
-    .categegory-link-a:hover{
+
+    .categegory-link-a p {
+        letter-spacing: 1.5px;
+    }
+
+    .categegory-link-a:hover {
         color: red;
+    }
+
+    .title h1 {
+        margin: 0px 0px 45px 0px;
+        color: #202020;
+        line-height: 1.1785714286;
+        font-size: 63px;
+        font-weight: normal;
+        letter-spacing: -1.2px;
+    }
+
+    .read-share {
+        padding-bottom: 30px;
+    }
+
+    .mins-date-share p {
+        color: #5f6368;
+        font-size: .9em;
+    }
+
+    .read-share {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .article-html {
+        line-height: 1.7;
+        font-size: 1.1em;
+        letter-spacing: .02em;
+        font-weight: 390;
+        max-width: 830px;
+        margin: auto;
+    }
+
+    @media all and (max-width: 1285px) {
+        .article-content {
+            margin: 0px 14px;
+        }
+
+        .categegory-link-a p {
+            font-size: smaller;
+        }
+
+        .title h1 {
+            font-size: 38px;
+        }
     }
 </style>
 
 
 <body>
     <div class="article_body">
-        <!--<p>Article Title: <?php //echo $row['articleName'] 
-                                ?></p>-->
         <div class="article-cont">
             <div class="article-content">
-                <div class="categegory-link" style="margin-bottom: 25px;">
-                    <a class="categegory-link-a" href="/c/<?php echo $row['ArticleCategoryID'] ?>"><p style="letter-spacing: 1.5px;"><?php echo strtoupper($row['ArticleCategoryName']) ?></p></a>
+                <div class="categegory-link">
+                    <a class="categegory-link-a" href="/c/<?php echo $row['ArticleCategoryID'] ?>">
+                        <p><?php echo strtoupper($row['ArticleCategoryName']) ?></p>
+                    </a>
                 </div>
-                <div class="title" >
-                    <h1 style="margin: 0px 0px 45px 0px;color:#202020;line-height: 1.1785714286;font-size: 63px;font-weight:normal;letter-spacing: -1.2px;"><?php echo $row['articleName'] ?></h1>
+                <div class="title">
+                    <h1><?php echo $row['articleName'] ?></h1>
                 </div>
-                <div class="mins-date-share">  
-                    <p style="color: #5f6368;font-size: .9em;"><?php echo date('F j, Y', strtotime($row['ArticleDate'])) ?></p>
-                    <p><?php echo $row['ArticleReadTime'] ?> min read</p>
-                    <button>Share</button>
+                <div class="mins-date-share">
+                    <div class="read-share">
+                        <p><?php echo date('F j, Y', strtotime($row['ArticleDate'])) ?></p>
+                        <button style="cursor:pointer;border: none;background-color: transparent;">
+                            <div class="button-flex" style="display: flex;justify-content:space-evenly">
+                                <img style="height:22px;" src="/static/share.svg" alt="">
+                                <p style="margin: auto;font-size: 16px;padding-inline: 7px;color: black;">Share</p>
+
+                            </div>
+                        </button>
+                    </div>
                 </div>
                 <div class="article-image" style="display: flex;justify-content:center;">
-                   
-                    <img style="width: 100%;margin:0px 17px;" src="http://rstatic.cloud/blog/image/<?php echo $row['ArticleImage'] ?>"></img>;
+
+                    <img style="width: 100%;" src="http://rstatic.cloud/blog/image/<?php echo $row['ArticleImage'] ?>"></img>
                 </div>
-                <div class="article-html">
-                <p><?php echo $row['ArticleHTML'] ?></p>
+                <p style="float: inline-end;font-size: 10px;color: #00000082;">Image source: Pixabay / Karen Jubinville</p>
+
+                <div class="article-html" style="padding-top: 40px;">
+                    <p><?php echo $row['ArticleHTML'] ?></p>
                 </div>
                 <div class="articleposted">
                     <p>Posted in:</p><a href="/c/<?php echo $row['ArticleCategoryID'] ?>"><?php echo $row['ArticleCategoryName'] ?></a>
 
                 </div>
                 <div class="noflex">
-                <hr>
+                    <hr>
 
                 </div>
 
             </div>
-          
+
         </div>
         <div class="more-articles">
-        <?php 
-        while($row_similar = mysqli_fetch_array($result_similar)){
-            echo "<p>{$row_similar['articleName']} </p>";
+            <?php
+            while ($row_similar = mysqli_fetch_array($result_similar)) {
+                echo "<p>{$row_similar['articleName']} </p>";
+            }
 
-        }
-            
-            
-    ?>
+
+            ?>
         </div>
     </div>
 </body>

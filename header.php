@@ -139,7 +139,7 @@
         padding-top: 70px;
     }
 
-    @media all and (max-width: 1285px) {
+    @media all and (max-width: 1485px) {
         header {
             height: 64px;
         }
@@ -164,7 +164,7 @@
 
         .header-mobo-all button {
             background-color: transparent;
-            width: 45px;
+            width: 55px;
             height: 64px;
             margin: auto 0px;
             border: none;
@@ -183,8 +183,8 @@
         #header-mobo-expand {
             display: block;
             position: fixed;
-            width: 80%;
-            left: -80%;
+            width: 300px;
+            left: -300px;
             transition: .1s;
             height: 100%;
             top: 0;
@@ -219,9 +219,9 @@
         #shadow-from-mobo-header {
             display: block;
             position: fixed;
-            width: 20%;
+            width: calc(100% - 300px);
             height: 100%;
-            right: -20%;
+            right: -100%;
             top: 0;
             background-color: black;
             transition: .1s;
@@ -374,12 +374,12 @@ color: #000000c9;
     <div class="header-mobile">
         <script>
             function togglemenu() {
-                if (document.getElementById("header-mobo-expand").style.left == "0%") {
-                    document.getElementById("header-mobo-expand").style.left = "-80%"
-                    document.getElementById("shadow-from-mobo-header").style.right = "-20%"
+                if (document.getElementById("header-mobo-expand").style.left == "0px") {
+                    document.getElementById("header-mobo-expand").style.left = "-300px"
+                    document.getElementById("shadow-from-mobo-header").style.right = "-100%"
                 } else {
                     document.getElementById("shadow-from-mobo-header").style.right = "0%"
-                    document.getElementById("header-mobo-expand").style.left = "0%";
+                    document.getElementById("header-mobo-expand").style.left = "0px";
                 }
             }
 
@@ -432,7 +432,7 @@ color: #000000c9;
             </div>
             <div class="header-mobo-expand-menu">
                 <ul>
-                    <li><a href="#">Latest stories</a></li>
+                    <li><a id="index" href="/">Latest stories</a></li>
                     <?php 
                         require_once 'con.php';
                         $sql_menu = "SELECT * FROM `blog_category` ORDER BY `blog_category`.`OrderCat` ASC ";

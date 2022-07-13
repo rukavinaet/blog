@@ -11,18 +11,14 @@ else{
 
 $sql2 = "SELECT DisplayText FROM `blog_category` WHERE categoryID = '$ID' LIMIT 1";
 $result2 = mysqli_query($conn, $sql2);
-$row2 = mysqli_fetch_array($result2)
+$row2 = mysqli_fetch_array($result2);
+
+$sql3 = "SELECT ArticleCategoryID FROM `blog_article` WHERE ArticleCategoryID = '$ID'";
+$result4 = mysqli_query($conn, $sql3);
+$row3 = mysqli_fetch_array($result4);
 ?>
-<style>
-    #developers{
-        cursor: pointer;
-                color: black;
-                text-decoration-line: underline;
-                text-decoration-color: red;
-                text-decoration-thickness: 2px;
-                text-underline-offset: 24px
-    }
-</style>
+
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -51,17 +47,34 @@ $row2 = mysqli_fetch_array($result2)
     <link rel="stylesheet" href="/styles/css/styles.css">  <!-- TODO: Update styles -->
     <link rel="stylesheet" href="/styles/css/print.css" media="print">
 </head>
+<style>
+    #<?php echo $row3['ArticleCategoryID'] ?> {
+        cursor: pointer;
+        color: black;
+        text-decoration-line: underline;
+        text-decoration-color: red;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 24px;
+    }
+
+    @media all and (max-width: 1285px) {
+        #<?php echo $row3['ArticleCategoryID'] ?> {
+            text-underline-offset: 12px;
+        }
+    }
+</style>
 <body>
     <div class="article_body">
         <?php 
-        while($row = mysqli_fetch_array($result)){
-            echo "<p>Category: {$row['articleName']} </p>";
+        while($row_m = mysqli_fetch_array($result)){
+            echo "<p><a href='/{$row_m['articleID']}'>{$row_m['articleName']}</a> </p>";
 
         }
             
             
     ?>
     </div>
+
    
     
   

@@ -1,10 +1,3 @@
-<?php
-require_once 'con.php';
-$row_match = $row['ArticleTopic'];
-$no_use = $row['articleID'];
-$sql_similar = "SELECT * FROM `blog_article` WHERE ArticleTopic = '$row_match' and NOT (articleID = '$no_use') ";
-$result_similar = mysqli_query($conn, $sql_similar);
-?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -28,7 +21,13 @@ $result_similar = mysqli_query($conn, $sql_similar);
         text-decoration-line: underline;
         text-decoration-color: red;
         text-decoration-thickness: 2px;
-        text-underline-offset: 24px
+        text-underline-offset: 24px;
+    }
+
+    @media all and (max-width: 1285px) {
+        #<?php echo $row['ArticleCategoryID'] ?> {
+            text-underline-offset: 12px;
+        }
     }
 </style>
 <style>
@@ -157,7 +156,15 @@ $result_similar = mysqli_query($conn, $sql_similar);
 
         </div>
         <div class="more-articles">
+            <p>More like this</p>
+            <hr>
             <?php
+            require_once 'con.php';
+            $row_match = $row['ArticleCategoryID'];
+            $no_use = $row['articleID'];
+            $sql_similar = "SELECT * FROM `blog_article` WHERE ArticleCategoryID = '$row_match' and NOT (articleID = '$no_use') ";
+            $result_similar = mysqli_query($conn, $sql_similar);
+
             while ($row_similar = mysqli_fetch_array($result_similar)) {
                 echo "<p>{$row_similar['articleName']} </p>";
             }

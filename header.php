@@ -304,7 +304,7 @@ color: #000000c9;
                         <li><a id="index" href="/">Latest stories</a></li>
                         <?php 
                         require_once 'con.php';
-                        $sql_menu = "SELECT * FROM `blog_category`";
+                        $sql_menu = "SELECT * FROM `blog_category` ORDER BY `blog_category`.`OrderCat` ASC ";
                         $result_menu = mysqli_query($conn, $sql_menu);
                         while ($row_menu = mysqli_fetch_array($result_menu)) {
                             echo "<li><a id='{$row_menu['categoryID']}' href='/category/{$row_menu['categoryID']}'>{$row_menu['DisplayText']}</a></li>";
@@ -435,7 +435,7 @@ color: #000000c9;
                     <li><a href="#">Latest stories</a></li>
                     <?php 
                         require_once 'con.php';
-                        $sql_menu = "SELECT * FROM `blog_category`";
+                        $sql_menu = "SELECT * FROM `blog_category` ORDER BY `blog_category`.`OrderCat` ASC ";
                         $result_menu = mysqli_query($conn, $sql_menu);
                         while ($row_menu = mysqli_fetch_array($result_menu)) {
                             echo "<li><a id='{$row_menu['categoryID']}'href='/category/{$row_menu['categoryID']}'>{$row_menu['DisplayText']} </a></li>";

@@ -60,7 +60,7 @@
         list-style: none;
         padding-left: 20px;
         font-size: .86em;
-        line-height: 1rem;
+        line-height: 64px;
         letter-spacing: .04em;
     }
 
@@ -68,6 +68,8 @@
         color: #5f6368;
         cursor: pointer;
         text-decoration: none;
+        height: 100%;
+        display: block;
     }
 
     .header-desktop-menu ul li a:hover {
@@ -307,7 +309,7 @@ color: #000000c9;
                         $sql_menu = "SELECT * FROM `blog_category` ORDER BY `blog_category`.`OrderCat` ASC ";
                         $result_menu = mysqli_query($conn, $sql_menu);
                         while ($row_menu = mysqli_fetch_array($result_menu)) {
-                            echo "<li><a id='{$row_menu['categoryID']}' href='/category/{$row_menu['categoryID']}'>{$row_menu['DisplayText']}</a></li>";
+                            echo "<li><a style='text-transform:capitalize;' id='{$row_menu['categoryID']}' href='/category/{$row_menu['categoryID']}'>{$row_menu['categoryID']}</a></li>";
                         }
                         ?>
                     </ul>
@@ -438,7 +440,7 @@ color: #000000c9;
                         $sql_menu = "SELECT * FROM `blog_category` ORDER BY `blog_category`.`OrderCat` ASC ";
                         $result_menu = mysqli_query($conn, $sql_menu);
                         while ($row_menu = mysqli_fetch_array($result_menu)) {
-                            echo "<li><a id='{$row_menu['categoryID']}'href='/category/{$row_menu['categoryID']}'>{$row_menu['DisplayText']} </a></li>";
+                            echo "<li><a style='text-transform:capitalize;' id='{$row_menu['categoryID']}'href='/category/{$row_menu['categoryID']}'>{$row_menu['categoryID']} </a></li>";
                         }
                         ?>
                 </ul>

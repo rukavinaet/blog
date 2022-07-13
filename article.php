@@ -23,8 +23,30 @@ if (mysqli_num_rows($result) == 0) {
     <meta property="og:description" content="<?php echo $row['ArticleMetaDesc'] ?>">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="http://rstatic.cloud/blog/image/<?php echo $row['ArticleImage'] ?>"> <!-- TODO: og:image -->
+
     <link rel="canonical" href="https://rukavinaet.blog/<?php echo $row['articleID'] ?>">
     <link rel="icon" href="/favicon.ico">
+    <!--      -->
+    <meta charset='UTF-8'>
+    <meta name='keywords' content='your, tags'>
+    <meta name='description' content='150 words'>
+    <meta name='subject' content='your websites subject'>
+    <meta name='copyright' content='Emanuel Tin Rukavina'>
+    <meta name='robots' content='index,follow'>
+
+    <meta name='author' content='Emanuel Tin Rukavina, copyright@rukavinaet.com'>
+    <meta name='designer' content='Emanuel Tin Rukavina'>
+    <meta name='reply-to' content='contact@rukavinaet.com'>
+    <meta name='owner' content='Emanuel Tin Rukavina'>
+    <meta name='url' content='https://rukavinaet.blog/#'>
+    <meta name='identifier-URL' content='https://rukavinaet.blog/#'>
+    <meta name='pagename' content='jQuery Tools, Tutorials and Resources - OReilly Media'>
+
+    
+
+
 </head>
 <style>
     #<?php echo $row['ArticleCategoryID'] ?> {
@@ -33,7 +55,7 @@ if (mysqli_num_rows($result) == 0) {
         text-decoration-line: underline;
         text-decoration-color: red;
         text-decoration-thickness: 2px;
-        text-underline-offset: 24px;
+        text-underline-offset: 25px;
     }
 
     @media all and (max-width: 1285px) {
@@ -164,10 +186,10 @@ if (mysqli_num_rows($result) == 0) {
                                 <img style="height:22px;" src="/static/share.svg" alt="">
                                 <p style="margin: auto;font-size: 16px;padding-inline: 7px;color: black;">Share</p>
                                 <script>
-                                    function share_me(){
-                                        if(document.getElementById("share").style.display == "block"){
+                                    function share_me() {
+                                        if (document.getElementById("share").style.display == "block") {
                                             document.getElementById("share").style.display = "none";
-                                        }else{
+                                        } else {
                                             document.getElementById("share").style.display = "block";
                                         }
                                     }
@@ -202,15 +224,16 @@ height: 50px;">
             </div>
 
         </div>
-        <p class="related_stories" >Related stories:</p>
+        <p class="related_stories">Related stories:</p>
         <div class="more-articles">
             <style>
-                .related_stories{
-                display: flex;
-  justify-content: center;
-  font-size: 40px;
-  margin-block: 50px;
-            }
+                .related_stories {
+                    display: flex;
+                    justify-content: center;
+                    font-size: 40px;
+                    margin-block: 50px;
+                }
+
                 .more-articles {
                     display: flex;
                     justify-content: space-evenly;
@@ -238,20 +261,23 @@ height: 50px;">
                 }
 
                 @media all and (max-width: 1285px) {
-                    .related_stories{
-                display: flex;
-  justify-content: center;
-  font-size: 25px;
-  margin-block: 50px;}
-                     .more-articles {
-                    display: flex;
-                    justify-content: space-evenly;
-                    flex-direction: column;
-                    width: 90%;
-                    padding-inline: 0px;
-                    margin-bottom: 100px;
-                    margin-inline: 5%;
-                }
+                    .related_stories {
+                        display: flex;
+                        justify-content: center;
+                        font-size: 25px;
+                        margin-block: 50px;
+                    }
+
+                    .more-articles {
+                        display: flex;
+                        justify-content: space-evenly;
+                        flex-direction: column;
+                        width: 90%;
+                        padding-inline: 0px;
+                        margin-bottom: 100px;
+                        margin-inline: 5%;
+                    }
+
                     .article-block {
                         display: flex;
                         border: 1px solid #00000040;
@@ -260,10 +286,11 @@ height: 50px;">
                         border-radius: 20px;
                         margin-bottom: 10px;
                     }
+
                     .article-block-inner {
-                    padding: 10px 30px;
-                    text-transform: uppercase;
-                }
+                        padding: 10px 30px;
+                        text-transform: uppercase;
+                    }
 
                     .article-block img {
                         display: none;
@@ -286,13 +313,15 @@ height: 50px;">
 
     </div>
     <style>
-        #share ul li{
+        #share ul li {
             margin: auto;
-list-style: none;margin-block: 15px;
-text-transform: uppercase;
+            list-style: none;
+            margin-block: 15px;
+            text-transform: uppercase;
 
         }
-        #share ul li a{
+
+        #share ul li a {
             text-decoration: none;
         }
     </style>
@@ -302,35 +331,39 @@ height: 100%;
 width: 100%;
 background-color: white;
 top: 64px;">
-<div class="close-share" style="justify-content: end;
+        <div class="close-share" style="justify-content: end;
 display: flex;margin-bottom: 40px;">
-    <button onclick="share_me();" style="margin: 26px;background-color:transparent;border:none;"><img style="height: 30px;opacity:70%;" src="/static/mail-sub-close.svg" alt=""></button>
-</div>
-<ul style="display: flex;
+            <button onclick="share_me();" style="margin: 26px;background-color:transparent;border:none;"><img style="height: 30px;opacity:70%;" src="/static/mail-sub-close.svg" alt=""></button>
+        </div>
+        <ul style="display: flex;
 justify-content: center;
 flex-direction: column;
 align-content: center;">
-    <li>
-        <a style="color:#4267b2;" href="#">Facebook</a>
-    </li>
-    <li>
-        <a style="color:#1c93e4;" href="#">Twitter</a>
-    </li><li>
-        <a style="color:#f22c00;" href="#">Gmail</a>
-    </li><li>
-        <a style="color:#0071ac;" href="#">LinkedIn</a>
-    </li><li>
-        <a style="color:#26c541;" href="#">Whatsapp</a>
-    </li><li>
-        <a style="color:#0081c2;" href="#">Telegram</a>
-    </li><li>
-        <a style="color:#324257;" href="#">Tumblr</a>
-    </li><li>
-        <a style="color:#f24100;" href="#">Reddit</a>
-    </li><li>
-        <a style="color:black;" href="#">Copy link</a>
-    </li>
-</ul>
+            <li>
+                <a target="_blank" style="color:#4267b2;" href="https://www.facebook.com/sharer/sharer.php?u=https://rukavinaet.blog/<?php echo $row['articleID'] ?>&quote=<?php echo $row['articleName'] ?>">Facebook</a>
+            </li>
+            <li>
+                <a target="_blank" style="color:#1c93e4;" href="https://twitter.com/intent/tweet?text=<?php echo $row['articleName'] ?>&url=https://rukavinaet.blog/<?php echo $row['articleID'] ?>">Twitter</a>
+            </li>
+            <li>
+                <a target="_blank" style="color:#f22c00;" href="https://mail.google.com/mail/u/0/?view=cm&to&su=<?php echo $row['articleName'] ?>&body=https%3A%2F%2Frukavinaet.blog/<?php echo $row['articleID'] ?>%0A&bcc&cc&fs=1&tf=1">Gmail</a>
+            </li>
+            <li>
+                <a target="_blank" style="color:#0071ac;" href="https://www.linkedin.com/sharing/share-offsite/?url=https://rukavinaet.blog/<?php echo $row['articleID'] ?>">LinkedIn</a>
+            </li>
+            <li>
+                <a target="_blank" style="color:#26c541;" href="https://wa.me/?text=<?php echo $row['articleID'] ?>">Whatsapp</a>
+            </li>
+            <li>
+                <a target="_blank" style="color:#0081c2;" href="https://t.me/share/url?url=https://rukavinaet.blog/<?php echo $row['articleID'] ?>&text=<?php echo $row['articleName'] ?>">Telegram</a>
+            </li>
+            <li>
+                <a target="_blank" style="color:#f24100;" href="https://www.reddit.com/submit?url=https://rukavinaet.blog/<?php echo $row['articleID'] ?>&title=<?php echo $row['articleName'] ?>">Reddit</a>
+            </li>
+            <li>
+                <a target="_blank" style="color:black;" href="#">Copy link</a>
+            </li>
+        </ul>
 
     </div>
 

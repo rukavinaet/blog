@@ -49,7 +49,7 @@ $result = mysqli_query($conn, $sql);
         text-decoration-line: underline;
         text-decoration-color: red;
         text-decoration-thickness: 2px;
-        text-underline-offset: 24px;
+        text-underline-offset: 25px;
     }
 
     @media all and (max-width: 1285px) {

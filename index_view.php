@@ -15,7 +15,7 @@ $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 // output data of each row
                 while ($row = mysqli_fetch_array($result)) {
-                    echo "id: " . $row["articleID"];
+                    echo "id: " . $row["AID"];
                 }
             } else {
                 echo "0 results";

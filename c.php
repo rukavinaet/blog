@@ -1,7 +1,7 @@
 <?php 
 require_once 'con.php';
 $ID = mysqli_real_escape_string($conn, $_GET['CAT']);
-$sql = "SELECT * FROM `blog_article` WHERE ArticleCategoryID = '$ID' ";
+$sql = "SELECT * FROM `blog_article` WHERE ACATID = '$ID' ";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
     header("Location: /");
@@ -9,11 +9,11 @@ if (mysqli_num_rows($result) == 0) {
 else{
 }
 
-$sql2 = "SELECT DisplayText FROM `blog_category` WHERE categoryID = '$ID' LIMIT 1";
+$sql2 = "SELECT CatDisplayText FROM `blog_category` WHERE categoryID = '$ID' LIMIT 1";
 $result2 = mysqli_query($conn, $sql2);
 $row2 = mysqli_fetch_array($result2);
 
-$sql3 = "SELECT ArticleCategoryID FROM `blog_article` WHERE ArticleCategoryID = '$ID'";
+$sql3 = "SELECT A_CATID FROM `blog_article` WHERE A_CATID = '$ID'";
 $result4 = mysqli_query($conn, $sql3);
 $row3 = mysqli_fetch_array($result4);
 ?>
@@ -24,7 +24,7 @@ $row3 = mysqli_fetch_array($result4);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Category: <?php echo $row2['DisplayText']; ?></title> <!-- TODO: update page title -->
+    <title>Category: <?php echo $row2['CatDisplayText']; ?></title> <!-- TODO: update page title -->
     <script type="module">
             document.documentElement.classList.remove('no-js');
             document.documentElement.classList.add('js');
@@ -48,7 +48,7 @@ $row3 = mysqli_fetch_array($result4);
     <link rel="stylesheet" href="/styles/css/print.css" media="print">
 </head>
 <style>
-    #<?php echo $row3['ArticleCategoryID'] ?> {
+    #<?php echo $row3['A_CATID'] ?> {
         cursor: pointer;
         color: black;
         text-decoration-line: underline;
@@ -58,7 +58,7 @@ $row3 = mysqli_fetch_array($result4);
     }
 
     @media all and (max-width: 1285px) {
-        #<?php echo $row3['ArticleCategoryID'] ?> {
+        #<?php echo $row3['A_CATID'] ?> {
             text-underline-offset: 12px;
         }
     }
@@ -67,7 +67,7 @@ $row3 = mysqli_fetch_array($result4);
     <div class="article_body">
         <?php 
         while($row_m = mysqli_fetch_array($result)){
-            echo "<p><a href='/{$row_m['articleID']}'>{$row_m['articleName']}</a> </p>";
+            echo "<p><a href='/{$row_m['AID']}'>{$row_m['A_Title']}</a> </p>";
 
         }
             

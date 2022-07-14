@@ -2,7 +2,7 @@
 
 require_once 'con.php';
 $ID = mysqli_real_escape_string($conn, $_GET['ID']);
-$sql = "SELECT * FROM `blog_article` WHERE articleID = '$ID' ";
+$sql = "SELECT * FROM `blog_article` WHERE AID = '$ID' ";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 if (mysqli_num_rows($result) == 0) {
@@ -16,23 +16,30 @@ if (mysqli_num_rows($result) == 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $row['articleName'] ?></title>
-    <meta name="description" content="<?php echo $row['articleName'] ?>">
-    <meta property="og:title" content="<?php echo $row['articleName'] ?>">
-    <meta property="og:url" content="https://rukavinaet.blog/<?php echo $row['articleID'] ?>">
-    <meta property="og:description" content="<?php echo $row['ArticleMetaDesc'] ?>">
+    <title><?php echo $row['ATitle'] ?></title>
+    <meta name="description" content="<?php echo $row['ADescription'] ?>">
+
+    <meta property="og:title" content="<?php echo $row['ATitle'] ?>">
+    <meta property="og:url" content="https://rukavinaet.blog/<?php echo $row['AID'] ?>">
+    <meta property="og:description" content="<?php echo $row['ADescription'] ?>">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary" />
-    <meta property="og:image" content="http://rstatic.cloud/blog/image/<?php echo $row['ArticleImage'] ?>"> <!-- TODO: og:image -->
+    <meta property="og:image" content="uploads/<?php echo $row['AImage'] ?>"> <!-- TODO: og:image -->
 
-    <link rel="canonical" href="https://rukavinaet.blog/<?php echo $row['articleID'] ?>">
-    <link rel="icon" href="/favicon.ico">
+
+    <meta name="twitter:image:src" content="uploads/<?php echo $row['AImage'] ?>" />
+    <meta name="twitter:site" content="@rukavinaet" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<?php echo $row['ATitle'] ?>" />
+    <meta name="twitter:description" content="<?php echo $row['ADescription'] ?>" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="canonical" href="https://rukavinaet.blog/<?php echo $row['AID'] ?>">
+    <link rel="icon" href="/static/logo_128dp.png">
     <!--      -->
     <meta charset='UTF-8'>
-    <meta name='keywords' content='your, tags'>
-    <meta name='description' content='150 words'>
-    <meta name='subject' content='your websites subject'>
+    <meta name='keywords' content="<?php echo $row['A_Keywords'] ?>">
+    <meta name='description' content='<?php echo $row['A_Description'] ?>'>
     <meta name='copyright' content='Emanuel Tin Rukavina'>
     <meta name='robots' content='index,follow'>
 
@@ -40,16 +47,16 @@ if (mysqli_num_rows($result) == 0) {
     <meta name='designer' content='Emanuel Tin Rukavina'>
     <meta name='reply-to' content='contact@rukavinaet.com'>
     <meta name='owner' content='Emanuel Tin Rukavina'>
-    <meta name='url' content='https://rukavinaet.blog/#'>
-    <meta name='identifier-URL' content='https://rukavinaet.blog/#'>
-    <meta name='pagename' content='jQuery Tools, Tutorials and Resources - OReilly Media'>
+    <meta name='url' content='https://rukavinaet.blog/<?php echo $row['AID'] ?>'>
+    <meta name='identifier-URL' content='https://rukavinaet.blog/<?php echo $row['AID'] ?>'>
+    <meta name='pagename' content='<?php echo $row['ATitle'] ?>'>
 
     
 
 
 </head>
 <style>
-    #<?php echo $row['ArticleCategoryID'] ?> {
+    #<?php echo $row['ACATID'] ?> {
         cursor: pointer;
         color: black;
         text-decoration-line: underline;
@@ -59,7 +66,7 @@ if (mysqli_num_rows($result) == 0) {
     }
 
     @media all and (max-width: 1285px) {
-        #<?php echo $row['ArticleCategoryID'] ?> {
+        #<?php echo $row['ACATID'] ?> {
             text-underline-offset: 12px;
         }
     }
@@ -171,16 +178,16 @@ if (mysqli_num_rows($result) == 0) {
         <div class="article-cont">
             <div class="article-content">
                 <div class="categegory-link">
-                    <a class="categegory-link-a" href="/category/<?php echo $row['ArticleCategoryID'] ?>">
-                        <p><?php echo strtoupper($row['ArticleCategoryName']) ?></p>
+                    <a class="categegory-link-a" href="/category/<?php echo $row['ACATID'] ?>">
+                        <p><?php echo strtoupper($row['ACATID']) ?></p>
                     </a>
                 </div>
                 <div class="title">
-                    <h1><?php echo $row['articleName'] ?></h1>
+                    <h1><?php echo $row['ATitle'] ?></h1>
                 </div>
                 <div class="mins-date-share">
                     <div class="read-share">
-                        <p><?php echo date('F j, Y', strtotime($row['ArticleDate'])) ?></p>
+                        <p><?php echo date('F j, Y', strtotime($row['ADate'])) ?></p>
                         <button onclick="share_me();" style="cursor:pointer;border: none;background-color: transparent;">
                             <div class="button-flex" style="display: flex;justify-content:space-evenly">
                                 <img style="height:22px;" src="/static/share.svg" alt="">
@@ -201,19 +208,19 @@ if (mysqli_num_rows($result) == 0) {
                 </div>
                 <div class="article-image" style="display: flex;justify-content:center;">
 
-                    <img style="width: 100%;" src="http://rstatic.cloud/blog/image/<?php echo $row['ArticleImage'] ?>"></img>
+                    <img style="width: 100%;" src="uploads/<?php echo $row['AImage'] ?>"></img>
                 </div>
-                <p style="float: inline-end;font-size: 10px;color: #00000082;">Image source: Pixabay / Karen Jubinville</p>
+                <p style="float: inline-end;font-size: 10px;color: #00000082;">Image source: <?php echo $row['AImageSourceCompany'] ?> / <?php echo $row['AImageSourcePerson'] ?></p>
 
                 <div class="article-html" style="padding-top: 40px;">
-                    <p><?php echo $row['ArticleHTML'] ?></p>
+                    <p><?php echo $row['AHTML'] ?></p>
                 </div>
                 <div class="articleposted" style="margin: auto;
 display: flex;
 margin: 0px 0px;
 padding-top: 50px;
 height: 50px;">
-                    <p style="margin-block: auto;">Posted in:</p><a style="" href="/category/<?php echo $row['ArticleCategoryID'] ?>"><?php echo $row['ArticleCategoryName'] ?></a>
+                    <p style="margin-block: auto;">Posted in:</p><a style="text-transform:capitalize;" href="/category/<?php echo $row['ACATID'] ?>"><?php echo $row['ACATID'] ?></a>
 
                 </div>
                 <div class="noflex" style="margin-top: 80px;">
@@ -300,9 +307,8 @@ height: 50px;">
 
             <?php
             require_once 'con.php';
-            $row_match = $row['ArticleCategoryID'];
-            $no_use = $row['articleID'];
-            $sql_similar = "SELECT * FROM `blog_article` where NOT (articleID = '$no_use') ORDER BY RAND() LIMIT 3";
+            $no_use = $row['AID'];
+            $sql_similar = "SELECT * FROM `blog_article` where NOT (AID = '$no_use') ORDER BY RAND() LIMIT 3";
             $result_similar = mysqli_query($conn, $sql_similar);
 
             while ($row_similar = mysqli_fetch_array($result_similar)) {
@@ -340,25 +346,25 @@ justify-content: center;
 flex-direction: column;
 align-content: center;">
             <li>
-                <a target="_blank" style="color:#4267b2;" href="https://www.facebook.com/sharer/sharer.php?u=https://rukavinaet.blog/<?php echo $row['articleID'] ?>&quote=<?php echo $row['articleName'] ?>">Facebook</a>
+                <a target="_blank" style="color:#4267b2;" href="https://www.facebook.com/sharer/sharer.php?u=https://rukavinaet.blog/<?php echo $row['AID'] ?>&quote=<?php echo $row['A_Title'] ?>">Facebook</a>
             </li>
             <li>
-                <a target="_blank" style="color:#1c93e4;" href="https://twitter.com/intent/tweet?text=<?php echo $row['articleName'] ?>&url=https://rukavinaet.blog/<?php echo $row['articleID'] ?>">Twitter</a>
+                <a target="_blank" style="color:#1c93e4;" href="https://twitter.com/intent/tweet?text=<?php echo $row['A_Title'] ?>&url=https://rukavinaet.blog/<?php echo $row['AID'] ?>">Twitter</a>
             </li>
             <li>
-                <a target="_blank" style="color:#f22c00;" href="https://mail.google.com/mail/u/0/?view=cm&to&su=<?php echo $row['articleName'] ?>&body=https%3A%2F%2Frukavinaet.blog/<?php echo $row['articleID'] ?>%0A&bcc&cc&fs=1&tf=1">Gmail</a>
+                <a target="_blank" style="color:#f22c00;" href="https://mail.google.com/mail/u/0/?view=cm&to&su=<?php echo $row['A_Title'] ?>&body=https%3A%2F%2Frukavinaet.blog/<?php echo $row['AID'] ?>%0A&bcc&cc&fs=1&tf=1">Gmail</a>
             </li>
             <li>
-                <a target="_blank" style="color:#0071ac;" href="https://www.linkedin.com/sharing/share-offsite/?url=https://rukavinaet.blog/<?php echo $row['articleID'] ?>">LinkedIn</a>
+                <a target="_blank" style="color:#0071ac;" href="https://www.linkedin.com/sharing/share-offsite/?url=https://rukavinaet.blog/<?php echo $row['AID'] ?>">LinkedIn</a>
             </li>
             <li>
-                <a target="_blank" style="color:#26c541;" href="https://wa.me/?text=<?php echo $row['articleID'] ?>">Whatsapp</a>
+                <a target="_blank" style="color:#26c541;" href="https://wa.me/?text=<?php echo $row['AID'] ?>">Whatsapp</a>
             </li>
             <li>
-                <a target="_blank" style="color:#0081c2;" href="https://t.me/share/url?url=https://rukavinaet.blog/<?php echo $row['articleID'] ?>&text=<?php echo $row['articleName'] ?>">Telegram</a>
+                <a target="_blank" style="color:#0081c2;" href="https://t.me/share/url?url=https://rukavinaet.blog/<?php echo $row['AID'] ?>&text=<?php echo $row['A_Title'] ?>">Telegram</a>
             </li>
             <li>
-                <a target="_blank" style="color:#f24100;" href="https://www.reddit.com/submit?url=https://rukavinaet.blog/<?php echo $row['articleID'] ?>&title=<?php echo $row['articleName'] ?>">Reddit</a>
+                <a target="_blank" style="color:#f24100;" href="https://www.reddit.com/submit?url=https://rukavinaet.blog/<?php echo $row['AID'] ?>&title=<?php echo $row['A_Title'] ?>">Reddit</a>
             </li>
             <li>
                 <a target="_blank" style="color:black;" href="#">Copy link</a>

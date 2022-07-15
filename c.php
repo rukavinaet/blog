@@ -13,7 +13,7 @@ $sql2 = "SELECT CatDisplayText FROM `blog_category` WHERE categoryID = '$ID' LIM
 $result2 = mysqli_query($conn, $sql2);
 $row2 = mysqli_fetch_array($result2);
 
-$sql3 = "SELECT A_CATID FROM `blog_article` WHERE A_CATID = '$ID'";
+$sql3 = "SELECT ACATID FROM `blog_article` WHERE ACATID = '$ID'";
 $result4 = mysqli_query($conn, $sql3);
 $row3 = mysqli_fetch_array($result4);
 ?>
@@ -48,7 +48,7 @@ $row3 = mysqli_fetch_array($result4);
     <link rel="stylesheet" href="/styles/css/print.css" media="print">
 </head>
 <style>
-    #<?php echo $row3['A_CATID'] ?> {
+    #<?php echo $row3['ACATID'] ?> {
         cursor: pointer;
         color: black;
         text-decoration-line: underline;
@@ -58,7 +58,7 @@ $row3 = mysqli_fetch_array($result4);
     }
 
     @media all and (max-width: 1285px) {
-        #<?php echo $row3['A_CATID'] ?> {
+        #<?php echo $row3['ACATID'] ?> {
             text-underline-offset: 12px;
         }
     }
@@ -67,7 +67,7 @@ $row3 = mysqli_fetch_array($result4);
     <div class="article_body">
         <?php 
         while($row_m = mysqli_fetch_array($result)){
-            echo "<p><a href='/{$row_m['AID']}'>{$row_m['A_Title']}</a> </p>";
+            echo "<p><a href='/{$row_m['AID']}'>{$row_m['ATitle']}</a> </p>";
 
         }
             

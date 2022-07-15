@@ -2,7 +2,7 @@
         <div class="article-block">
             <img src="uploads/<?php echo $row_similar['AImage'] ?>" alt="">
             <div class="article-block-inner">
-                <p style="font-size: .9em;"><?php echo $row_similar['ACATID'] ?></p>
+                <p style="font-size: .9em;opacity:60%;"><?php echo $row_similar['ACATID'] ?></p>
                 <p style="font-size: 25px;
     padding-block: 10px;text-transform:capitalize;word-break: break-word;"><?php echo $row_similar['ATitle'] ?></p>
 

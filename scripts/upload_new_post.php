@@ -22,7 +22,11 @@ if (isset($_POST['PostBlog'])) {
         echo "An error occured!";
     }
     $title = $_POST['ArticleName'];
-    $id = $_POST['ArticleID'];
+
+
+    $id =  date('Y-m-d') . "-" . strtolower($_POST['ArticleName']);
+    $id = preg_replace("/[\s_]/", "-", $id);
+
     $text = $_POST['ArticleText'];
     $meta = $_POST['ArticleDescription'];
     $company = $_POST['ImageCompany'];

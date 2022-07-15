@@ -38,8 +38,8 @@ if (mysqli_num_rows($result) == 0) {
     <link rel="icon" href="/static/logo_128dp.png">
     <!--      -->
     <meta charset='UTF-8'>
-    <meta name='keywords' content="<?php echo $row['A_Keywords'] ?>">
-    <meta name='description' content='<?php echo $row['A_Description'] ?>'>
+    <meta name='keywords' content="<?php echo $row['AKeywords'] ?>">
+    <meta name='description' content='<?php echo $row['ADescription'] ?>'>
     <meta name='copyright' content='Emanuel Tin Rukavina'>
     <meta name='robots' content='index,follow'>
 
@@ -308,7 +308,8 @@ height: 50px;">
             <?php
             require_once 'con.php';
             $no_use = $row['AID'];
-            $sql_similar = "SELECT * FROM `blog_article` where NOT (AID = '$no_use') ORDER BY RAND() LIMIT 3";
+            $thiscategory = $row['ACATID'];
+            $sql_similar = "SELECT * FROM `blog_article` where ACATID = '$thiscategory' and NOT (AID = '$no_use') ORDER BY RAND() LIMIT 3";
             $result_similar = mysqli_query($conn, $sql_similar);
 
             while ($row_similar = mysqli_fetch_array($result_similar)) {

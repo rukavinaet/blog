@@ -26,6 +26,7 @@ if (isset($_POST['PostBlog'])) {
 
     $id =  date('Y-m-d') . "-" . strtolower($_POST['ArticleName']);
     $id = preg_replace("/[\s_]/", "-", $id);
+    $id = preg_replace('/[?]/', '', $id);
 
     $text = $_POST['ArticleText'];
     $meta = $_POST['ArticleDescription'];
@@ -41,12 +42,10 @@ if (isset($_POST['PostBlog'])) {
 
  
     $query = "INSERT INTO `blog_article` (`AID`, `ATitle`, `ADate`, `AImage`, `AImageSourceCompany`, `AImageSourcePerson`, `AHTML`, `ARead`, `APublish`, `ACATID`, `ADescription`, `AKeywords`) 
-    VALUES ('$id', '$title', '$day', '$ImageFile', '$company', '$person', '$text', '$readtime', '1', '$category', '$meta', '$key')";
+    VALUES ('$id', '$title', '$day', '$ImageFile', '$company', '$person', '$text', '$readtime', '0', '$category', '$meta', '$key')";
     $query_run = mysqli_query($conn, $query);
     if($query_run){
         echo "https://rukavinaet.blog/".$id;
-
-        //header("Location: /".$id);
     }
     else{
         echo $id . "<br>";
@@ -61,5 +60,7 @@ if (isset($_POST['PostBlog'])) {
         echo $meta. "<br>";
         echo $key. "<br>" ;
     }
-   
+
 }
+
+

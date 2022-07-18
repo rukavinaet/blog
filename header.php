@@ -277,7 +277,6 @@
             justify-content: center;
             flex-direction: column;
             list-style: none;
-            margin-top: 30px;
         }
         .header-mobo-expand-menu ul li {
             display: flex;
@@ -285,12 +284,27 @@
 
         }
         .header-mobo-expand-menu ul li a{
-            padding: 0px 40px;;
-            height: 60px;
+            padding: 30px 40px;
+            height: 20px;
             width: 100%;text-decoration: none;
 color: #000000c9;
         }
     }
+    /* Light mode */
+@media (prefers-color-scheme: light) {
+    .prefferdark {
+        filter: invert(1);
+    }
+}
+
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .prefferdark {
+        filter: invert(0);
+    }
+}
+
 </style>
 <header>
     <div class="header-desktop">
@@ -405,7 +419,7 @@ color: #000000c9;
         </script>
         <div class="header-mobo-all">
             <div id="header-mobo-all-l">
-                <button onclick="togglemenu();"><img src="/static/menu_open.svg" alt=""></button>
+                <button onclick="togglemenu();"><img class="prefferdark" src="/static/menu_open.svg" alt=""></button>
 
                 <a href="https://rukavinaet.blog" style="color:black;text-decoration:none;font-size:9px;">
                     <h1>
@@ -421,11 +435,11 @@ color: #000000c9;
                     <input type="submit" value="" hidden>
                 </form>
             </div>
-            <button onclick="showsearch_mobo();"><img id="changeimgmobo" style="opacity:20%;" src="/static/search.svg" alt=""></button>
+            <button onclick="showsearch_mobo();"><img class="prefferdark" id="changeimgmobo" style="opacity:20%;" src="/static/search.svg" alt=""></button>
         </div>
         <div id="header-mobo-expand">
             <div class="header-mobo-expand-upper">
-                <button onclick="togglemenu();"><img src="/static/mail-sub-close.svg" alt=""></button>
+                <button onclick="togglemenu();"><img class="prefferdark" src="/static/mail-sub-close.svg" alt=""></button>
                 <a href="https://rukavinaet.blog" style="color:black;text-decoration:none;font-size:9px;">
                     <h1>
                         <span>The</span> <span style="color: red;">RBlog</span>
@@ -535,7 +549,7 @@ color: #000000c9;
 <div id="mail-subcribe-box">
     <div class="header-uni-emailbox">
         <div class="mail-sub-close">
-            <button onclick="showsub();"><img src="/static/mail-sub-close.svg" alt="" srcset=""></button>
+            <button onclick="showsub();"><img class="prefferdark" src="/static/mail-sub-close.svg" alt="" srcset=""></button>
 
         </div>
         <div class="mail">
@@ -569,7 +583,7 @@ color: #000000c9;
     echo (' <div id="mail-subcribe-box_success">
         <div class="header-uni-emailbox">
             <div class="mail-sub-close">
-                <button onclick="showsub_s();"><img src="/static/mail-sub-close.svg" alt="" srcset=""></button>
+                <button onclick="showsub_s();"><img class="prefferdark" src="/static/mail-sub-close.svg" alt="" srcset=""></button>
 
             </div>
             <div class="mail">

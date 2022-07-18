@@ -51,7 +51,7 @@ if (mysqli_num_rows($result) == 0) {
     <meta name='identifier-URL' content='https://rukavinaet.blog/<?php echo $row['AID'] ?>'>
     <meta name='pagename' content='<?php echo $row['ATitle'] ?>'>
 
-    
+
 
 
 </head>
@@ -169,6 +169,11 @@ if (mysqli_num_rows($result) == 0) {
         .title h1 {
             font-size: 38px;
         }
+
+        .article-html {
+            font-size: 1em;
+
+        }
     }
 </style>
 
@@ -187,13 +192,13 @@ if (mysqli_num_rows($result) == 0) {
                 </div>
                 <div class="mins-date-share">
                     <div class="read-share">
-                        <div class="right"style="display: flex;">
-                        <p><?php echo date('F j, Y', strtotime($row['ADate'])) ?></p>
-                        <p style="margin-left:20px;"><?php echo $row['ARead'] ?> mins read</p>
+                        <div class="right" style="display: flex;">
+                            <p><?php echo date('F j, Y', strtotime($row['ADate'])) ?></p>
+                            <p style="margin-left:20px;"><?php echo $row['ARead'] ?> mins read</p>
                         </div>
                         <button onclick="share_me();" style="cursor:pointer;border: none;background-color: transparent;">
                             <div class="button-flex" style="display: flex;justify-content:space-evenly">
-                                <img style="height:22px;" src="/static/share.svg" alt="">
+                                <img class="prefferdark"  style="height:22px;" src="/static/share.svg" alt="">
                                 <p style="margin: auto;font-size: 16px;padding-inline: 7px;color: black;">Share</p>
                                 <script>
                                     function share_me() {
@@ -273,40 +278,65 @@ height: 50px;">
                     text-transform: uppercase;
                 }
 
+                .mobilesmall {
+                    font-size: 25px;
+                }
+
+                .article-html iframe {
+                    width: 100%;
+                    height: 500px;
+                }
+
+                .article-html ul {
+                    padding-inline: 20px;
+                    list-style: circle;
+                }
+                .article-html a{
+                    color: red;
+                }
+
                 @media all and (max-width: 1285px) {
                     .related_stories {
                         display: flex;
                         justify-content: center;
-                        font-size: 25px;
+                        font-size: 20px;
                         margin-block: 50px;
                     }
 
                     .more-articles {
                         display: flex;
                         justify-content: space-evenly;
-                        flex-direction: column;
-                        width: 90%;
                         padding-inline: 0px;
                         margin-bottom: 100px;
-                        margin-inline: 5%;
+                        margin-inline: 0%;
+                        width: 100%;
+                        flex-direction: column;
                     }
 
                     .article-block {
                         display: flex;
+                        flex-direction: column;
                         border: 1px solid #00000040;
-                        width: 100%;
                         text-align: left;
                         border-radius: 20px;
-                        margin-bottom: 10px;
+                        margin: auto;
+                        margin-bottom: 2em;
                     }
+
+                    .mobilesmall {
+                        font-size: 1.5em;
+                    }
+
+
 
                     .article-block-inner {
                         padding: 10px 30px;
                         text-transform: uppercase;
+                        font-size: 1em;
                     }
 
                     .article-block img {
-                        display: none;
+                        width: 22em;
                     }
                 }
             </style>
@@ -346,7 +376,7 @@ background-color: white;
 top: 64px;">
         <div class="close-share" style="justify-content: end;
 display: flex;margin-bottom: 40px;">
-            <button onclick="share_me();" style="margin: 26px;background-color:transparent;border:none;"><img style="height: 30px;opacity:70%;" src="/static/mail-sub-close.svg" alt=""></button>
+            <button onclick="share_me();" style="margin: 26px;background-color:transparent;border:none;"><img class="prefferdark"  style="height: 30px;opacity:70%;" src="/static/mail-sub-close.svg" alt=""></button>
         </div>
         <ul style="display: flex;
 justify-content: center;
@@ -372,9 +402,6 @@ align-content: center;">
             </li>
             <li>
                 <a target="_blank" style="color:#f24100;" href="https://www.reddit.com/submit?url=https://rukavinaet.blog/<?php echo $row['AID'] ?>&title=<?php echo $row['A_Title'] ?>">Reddit</a>
-            </li>
-            <li>
-                <a target="_blank" style="color:black;" href="#">Copy link</a>
             </li>
         </ul>
 

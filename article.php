@@ -187,7 +187,10 @@ if (mysqli_num_rows($result) == 0) {
                 </div>
                 <div class="mins-date-share">
                     <div class="read-share">
+                        <div class="right"style="display: flex;">
                         <p><?php echo date('F j, Y', strtotime($row['ADate'])) ?></p>
+                        <p style="margin-left:20px;"><?php echo $row['ARead'] ?> mins read</p>
+                        </div>
                         <button onclick="share_me();" style="cursor:pointer;border: none;background-color: transparent;">
                             <div class="button-flex" style="display: flex;justify-content:space-evenly">
                                 <img style="height:22px;" src="/static/share.svg" alt="">
@@ -210,7 +213,10 @@ if (mysqli_num_rows($result) == 0) {
 
                     <img style="width: 100%;" src="uploads/<?php echo $row['AImage'] ?>"></img>
                 </div>
-                <p style="float: inline-end;font-size: 10px;color: #00000082;">Image source: <?php echo $row['AImageSourceCompany'] ?> / <?php echo $row['AImageSourcePerson'] ?></p>
+                <div class="image">
+                    <p style="float: inline-end;font-size: 10px;color: #00000082;">Image source: <?php echo $row['AImageSourceCompany'] ?> / <?php echo $row['AImageSourcePerson'] ?></p>
+
+                </div>
 
                 <div class="article-html" style="padding-top: 40px;">
                     <p><?php echo $row['AHTML'] ?></p>
@@ -309,7 +315,7 @@ height: 50px;">
             require_once 'con.php';
             $no_use = $row['AID'];
             $thiscategory = $row['ACATID'];
-            $sql_similar = "SELECT * FROM `blog_article` where ACATID = '$thiscategory' and NOT (AID = '$no_use') ORDER BY RAND() LIMIT 3";
+            $sql_similar = "SELECT * FROM `blog_article` where ACATID = '$thiscategory' and NOT (AID = '$no_use') and APublish = '1' ORDER BY RAND() LIMIT 3";
             $result_similar = mysqli_query($conn, $sql_similar);
 
             while ($row_similar = mysqli_fetch_array($result_similar)) {

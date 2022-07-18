@@ -1,7 +1,7 @@
 <?php 
 require_once 'con.php';
 $ID = mysqli_real_escape_string($conn, $_GET['CAT']);
-$sql = "SELECT * FROM `blog_article` WHERE ACATID = '$ID' ";
+$sql = "SELECT * FROM `blog_article` WHERE ACATID = '$ID' and APublish = '1'";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
     header("Location: /");
@@ -9,13 +9,10 @@ if (mysqli_num_rows($result) == 0) {
 else{
 }
 
-$sql2 = "SELECT CatDisplayText FROM `blog_category` WHERE categoryID = '$ID' LIMIT 1";
+$sql2 = "SELECT * FROM `blog_category` WHERE categoryID = '$ID'";
 $result2 = mysqli_query($conn, $sql2);
 $row2 = mysqli_fetch_array($result2);
 
-$sql3 = "SELECT ACATID FROM `blog_article` WHERE ACATID = '$ID'";
-$result4 = mysqli_query($conn, $sql3);
-$row3 = mysqli_fetch_array($result4);
 ?>
 
 
@@ -48,7 +45,7 @@ $row3 = mysqli_fetch_array($result4);
     <link rel="stylesheet" href="/styles/css/print.css" media="print">
 </head>
 <style>
-    #<?php echo $row3['ACATID'] ?> {
+    #<?php echo $row2['categoryID'] ?> {
         cursor: pointer;
         color: black;
         text-decoration-line: underline;
@@ -58,7 +55,7 @@ $row3 = mysqli_fetch_array($result4);
     }
 
     @media all and (max-width: 1285px) {
-        #<?php echo $row3['ACATID'] ?> {
+        #<?php echo $row2['categoryID'] ?> {
             text-underline-offset: 12px;
         }
     }

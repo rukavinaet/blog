@@ -35,13 +35,18 @@ if (isset($_POST['PostBlog'])) {
     $day = date('Y-m-d');
     $category = $_POST['BlogCategory'];
 
+    $readtimeRaw = strlen($text) / 9;
+    $readtime = $readtimeRaw / 60;
+    $readtime = round($readtime);
+
  
-    $query = "INSERT INTO `blog_article` (`AID`, `ATitle`, `ADate`, `AImage`, `AImageSourceCompany`, `AImageSourcePerson`, `AHTML`, `APublish`, `ACATID`, `ADescription`, `AKeywords`) 
-    VALUES ('$id', '$title', '$day', '$ImageFile', '$company', '$person', '$text', '1', '$category', '$meta', '$key')";
+    $query = "INSERT INTO `blog_article` (`AID`, `ATitle`, `ADate`, `AImage`, `AImageSourceCompany`, `AImageSourcePerson`, `AHTML`, `ARead`, `APublish`, `ACATID`, `ADescription`, `AKeywords`) 
+    VALUES ('$id', '$title', '$day', '$ImageFile', '$company', '$person', '$text', '$readtime', '1', '$category', '$meta', '$key')";
     $query_run = mysqli_query($conn, $query);
     if($query_run){
-        echo "Cool!";
-        header("Location: /".$id);
+        echo "https://rukavinaet.blog/".$id;
+
+        //header("Location: /".$id);
     }
     else{
         echo $id . "<br>";

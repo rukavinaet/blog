@@ -62,6 +62,9 @@ $row2 = mysqli_fetch_array($result2);
 </style>
 <body>
     <div class="article_body">
+        <p>OFFICIAL BLOG</p>
+        <h2><?php echo $row2['CatDisplayText']; ?></h2>
+
         <?php 
         while($row_m = mysqli_fetch_array($result)){
             echo "<p><a href='/{$row_m['AID']}'>{$row_m['ATitle']}</a> </p>";

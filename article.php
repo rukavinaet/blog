@@ -157,6 +157,23 @@ if (mysqli_num_rows($result) == 0) {
         margin-block: auto;
     }
 
+    .article-html iframe {
+        width: 100%;
+        height: 500px;
+    }
+
+    .article-html ul {
+        padding-inline: 20px;
+        list-style: circle;
+    }
+
+    .article-html a {
+        color: red;
+    }
+    .article-html table{
+        width: 100%;
+    }
+
     @media all and (max-width: 1285px) {
         .article-content {
             margin: 0px 14px;
@@ -198,7 +215,7 @@ if (mysqli_num_rows($result) == 0) {
                         </div>
                         <button onclick="share_me();" style="cursor:pointer;border: none;background-color: transparent;">
                             <div class="button-flex" style="display: flex;justify-content:space-evenly">
-                                <img class="prefferdark"  style="height:22px;" src="/static/share.svg" alt="">
+                                <img class="prefferdark" style="height:22px;" src="/static/share.svg" alt="">
                                 <p style="margin: auto;font-size: 16px;padding-inline: 7px;color: black;">Share</p>
                                 <script>
                                     function share_me() {
@@ -282,18 +299,7 @@ height: 50px;">
                     font-size: 25px;
                 }
 
-                .article-html iframe {
-                    width: 100%;
-                    height: 500px;
-                }
 
-                .article-html ul {
-                    padding-inline: 20px;
-                    list-style: circle;
-                }
-                .article-html a{
-                    color: red;
-                }
 
                 @media all and (max-width: 1285px) {
                     .related_stories {
@@ -376,7 +382,7 @@ background-color: white;
 top: 64px;">
         <div class="close-share" style="justify-content: end;
 display: flex;margin-bottom: 40px;">
-            <button onclick="share_me();" style="margin: 26px;background-color:transparent;border:none;"><img class="prefferdark"  style="height: 30px;opacity:70%;" src="/static/mail-sub-close.svg" alt=""></button>
+            <button onclick="share_me();" style="margin: 26px;background-color:transparent;border:none;"><img class="prefferdark" style="height: 30px;opacity:70%;" src="/static/mail-sub-close.svg" alt=""></button>
         </div>
         <ul style="display: flex;
 justify-content: center;

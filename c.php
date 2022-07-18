@@ -1,7 +1,7 @@
 <?php 
 require_once 'con.php';
 $ID = mysqli_real_escape_string($conn, $_GET['CAT']);
-$sql = "SELECT * FROM `blog_article` WHERE ACATID = '$ID' and APublish = '1'";
+$sql = "SELECT * FROM `blog_article` WHERE ACATID = '$ID'";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
     header("Location: /");
@@ -60,13 +60,53 @@ $row2 = mysqli_fetch_array($result2);
     <div class="article_body">
         <div class="cat-cont">
             <div class="cat-content">
-            <p style="letter-spacing: 1.5px;">OFFICIAL BLOG</p>
+            <p style="letter-spacing: 1.5px;">CATEGORY</p>
         <p class="cat-title"><?php echo $row2['categoryID']; ?></p>
         <p class="cat-subtitle"><?php echo $row2['CatDisplayText']; ?></p>
+        <div onmouseover="invite();" onmouseout="deinvite();" class="latestincat">
+        <script>
+            var1 = "text-decoration-color";
+            function invite(){
+                document.getElementById("shrinkgrow").style.transform = "scale(1.02)";
+                document.getElementById("latest-meta-title").style.textDecoration= "underline red";
+
+            }
+            function deinvite(){
+                document.getElementById("latest-meta-title").style.textDecoration = "underline transparent";
+                document.getElementById("shrinkgrow").style.transform = "scale(1)";
+
+            }
+        </script>
+            <?php 
+            $IDlatest = mysqli_real_escape_string($conn, $_GET['CAT']);
+            $sqllatest = "SELECT * FROM `blog_article` WHERE ACATID = '$IDlatest' ORDER BY `blog_article`.`ADate` DESC LIMIT 1";
+            $resultlatest = mysqli_query($conn, $sqllatest);
+            $rowlatest = mysqli_fetch_array($resultlatest)
+            ?>
+            <a href="/<?php echo $rowlatest['AID'] ?>">
+            <div class="image-grow" style="overflow:hidden;">
+            <img id="shrinkgrow" style="border-radius: 22px;" src="/uploads/<?php echo $rowlatest['AImage'] ?>" alt="">
+
+            </div>
+            <div class="latest-meta">
+            <p id="latest-meta-title"><?php echo $rowlatest['ATitle'] ?></p>
+            <p class="latest-meta-subtitle"><?php echo $rowlatest['ADescription'] ?></p>
+            <div class="arrow" style="display: flex;
+justify-content: end;
+margin-top: 40px;">
+                <img style="height: 25px;" src="/static/arrow.svg" alt="" srcset="">
+            </div>
+            </div>
+
+        </a>
+        </div>
+        <div class="other-articles">
+            <p>All the Latest</p>
+        </div>
 
         <?php 
         while($row_m = mysqli_fetch_array($result)){
-            echo "<p><a href='/{$row_m['AID']}'>{$row_m['ATitle']}</a> </p>";
+       //     echo "<p><a href='/{$row_m['AID']}'>{$row_m['ATitle']}</a> </p>";
 
         }
             

@@ -21,11 +21,7 @@ $row2 = mysqli_fetch_array($result2);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Category: <?php echo $row2['CatDisplayText']; ?></title> <!-- TODO: update page title -->
-    <script type="module">
-            document.documentElement.classList.remove('no-js');
-            document.documentElement.classList.add('js');
-    </script>
+    <title><?php echo ucfirst($row2['categoryID']); ?> | The RBlog</title> <!-- TODO: update page title -->
     <meta name="description" content="Page Description"> <!-- TODO: update meta description -->
     <meta property="og:title" content="Home - Page">  <!-- TODO: update og:title -->
     <meta property="og:url" content="https://www.example.com/page"> <!-- TODO: update og:url -->
@@ -36,9 +32,7 @@ $row2 = mysqli_fetch_array($result2);
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="large-image-twitter.jpg"> <!-- TODO: update twitter:cared -->
     <link rel="canonical" href="https://www.example.com/page"> <!-- TODO: update canonical link -->
-    <link rel="icon" href="/favicon.ico">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/static/logo_128dp.png">
     <link rel="manifest" href="site.webmanifest"> <!-- TODO: update web app manifest file -->
     <meta name="theme-color" content="#FF00FF"> <!-- TODO: update meta theme color -->
     <link rel="stylesheet" href="/styles/css/styles.css">  <!-- TODO: Update styles -->
@@ -60,10 +54,15 @@ $row2 = mysqli_fetch_array($result2);
         }
     }
 </style>
+<?php include 'style.php' ?>
+
 <body>
     <div class="article_body">
-        <p>OFFICIAL BLOG</p>
-        <h2><?php echo $row2['CatDisplayText']; ?></h2>
+        <div class="cat-cont">
+            <div class="cat-content">
+            <p style="letter-spacing: 1.5px;">OFFICIAL BLOG</p>
+        <p class="cat-title"><?php echo $row2['categoryID']; ?></p>
+        <p class="cat-subtitle"><?php echo $row2['CatDisplayText']; ?></p>
 
         <?php 
         while($row_m = mysqli_fetch_array($result)){
@@ -73,6 +72,9 @@ $row2 = mysqli_fetch_array($result2);
             
             
     ?>
+            </div>
+        </div>
+        
     </div>
 
    

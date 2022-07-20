@@ -82,9 +82,15 @@ $row2 = mysqli_fetch_array($result2);
                 <p class="cat-subtitle"><?php echo $row2['CatDisplayText']; ?></p>
                 <div onmouseover="invite();" onmouseout="deinvite();" class="latestincat" style="
                 <?php 
-                if(isset($_GET['page'])){echo "display:none;";}
+                $showMe = $_GET['page'];
+                if(! $showMe){echo "display:block;";}
                 else{
-                    echo "display:block;";}
+                    if($showMe == "1"){echo "display:block;";}
+                    else{
+                        echo "display:none;";
+                    }
+                    
+                }
                 ?>">
                     <script>
                         var1 = "text-decoration-color";
@@ -124,7 +130,18 @@ $row2 = mysqli_fetch_array($result2);
                 </div>
                 <div class="other-articles">
                     <p style="font-size: 2em;
-margin-block: 20px 50px;">All the Latest</p>
+margin-block: 20px 50px;
+                <?php 
+                $showMe = $_GET['page'];
+                if(! $showMe){echo "display:block;";}
+                else{
+                    if($showMe == "1"){echo "display:block;";}
+                    else{
+                        echo "opacity:0%;margin-block: 20px 20px;";
+                    }
+                    
+                }
+                ?>">All the Latest</p>
                 </div>
 
                 <div id="this-more-articles">

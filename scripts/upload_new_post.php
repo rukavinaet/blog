@@ -21,28 +21,60 @@ if (isset($_POST['PostBlog'])) {
     } else {
         echo "An error occured!";
     }
+
+
     $title = $_POST['ArticleName'];
+    $title = preg_replace("/[']/", "&#39;", $title);
+
+
 
 
     $id =  date('Y-m-d') . "-" . strtolower($_POST['ArticleName']);
     $id = preg_replace("/[\s_]/", "-", $id);
     $id = preg_replace('/[?]/', '', $id);
+    $id = preg_replace('/[\/]/', '-', $id);
+    $id = preg_replace("/[']/", '', $id);
 
     $text = $_POST['ArticleText'];
+    $text = preg_replace("/[']/", "&#39;", $text);
+
     $meta = $_POST['ArticleDescription'];
+    $meta = preg_replace("/[']/", "&#39;", $meta);
+
+
     $company = $_POST['ImageCompany'];
     $person = $_POST['ImagePerson'];
+    $person = preg_replace("/[']/", "&#39;", $person);
+    if($company == ""){
+        $company = "Original Image";
+    }
+    else{
+        $company = $company . " / ";
+        $company  = preg_replace("/[']/", "&#39;", $company);
+
+        
+    }
+    
+
+
     $key = $_POST['key'];
     $day = date('Y-m-d');
     $category = $_POST['BlogCategory'];
 
-    $readtimeRaw = strlen($text) / 9;
+    $readtimeRaw = strlen($text) / 16;
     $readtime = $readtimeRaw / 60;
     $readtime = round($readtime);
 
+    if($readtime == "0"){
+        $readtime = "1";
+    }
+    else{
+        $readtime = $readtime;
+    }
+
  
     $query = "INSERT INTO `blog_article` (`AID`, `ATitle`, `ADate`, `AImage`, `AImageSourceCompany`, `AImageSourcePerson`, `AHTML`, `ARead`, `APublish`, `ACATID`, `ADescription`, `AKeywords`) 
-    VALUES ('$id', '$title', '$day', '$ImageFile', '$company', '$person', '$text', '$readtime', '0', '$category', '$meta', '$key')";
+    VALUES ('$id', '$title', '$day', '$ImageFile', '$company', '$person', '$text', '$readtime', '1', '$category', '$meta', '$key')";
     $query_run = mysqli_query($conn, $query);
     if($query_run){
         echo "https://rukavinaet.blog/".$id;

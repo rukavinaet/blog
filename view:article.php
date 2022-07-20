@@ -114,7 +114,7 @@ if (mysqli_num_rows($result) == 0) {
                     <img style="width: 100%;" src="uploads/<?php echo $row['AImage'] ?>"></img>
                 </div>
                 <div class="image">
-                    <p style="float: inline-end;font-size: 10px;color: #00000082;">Image source: <?php echo $row['AImageSourceCompany'] ?> / <?php echo $row['AImageSourcePerson'] ?></p>
+                    <p style="float: inline-end;font-size: 10px;color: #00000082;">Image source: <?php echo $row['AImageSourceCompany'] ?>  <?php echo $row['AImageSourcePerson'] ?></p>
 
                 </div>
 
@@ -171,13 +171,13 @@ justify-content: center;
 flex-direction: column;
 align-content: center;">
             <li>
-                <a target="_blank" style="color:#4267b2;" href="https://www.facebook.com/sharer/sharer.php?u=https://rukavinaet.blog/<?php echo $row['AID'] ?>&quote=<?php echo $row['A_Title'] ?>">Facebook</a>
+                <a target="_blank" style="color:#4267b2;" href="https://www.facebook.com/sharer/sharer.php?u=https://rukavinaet.blog/<?php echo $row['AID'] ?>&quote=<?php echo $row['ATitle'] ?>">Facebook</a>
             </li>
             <li>
-                <a target="_blank" style="color:#1c93e4;" href="https://twitter.com/intent/tweet?text=<?php echo $row['A_Title'] ?>&url=https://rukavinaet.blog/<?php echo $row['AID'] ?>">Twitter</a>
+                <a target="_blank" style="color:#1c93e4;" href="https://twitter.com/intent/tweet?text=<?php echo $row['ATitle'] ?>&url=https://rukavinaet.blog/<?php echo $row['AID'] ?>">Twitter</a>
             </li>
             <li>
-                <a target="_blank" style="color:#f22c00;" href="https://mail.google.com/mail/u/0/?view=cm&to&su=<?php echo $row['A_Title'] ?>&body=https%3A%2F%2Frukavinaet.blog/<?php echo $row['AID'] ?>%0A&bcc&cc&fs=1&tf=1">Gmail</a>
+                <a target="_blank" style="color:#f22c00;" href="https://mail.google.com/mail/u/0/?view=cm&to&su=<?php echo $row['ATitle'] ?>&body=https%3A%2F%2Frukavinaet.blog/<?php echo $row['AID'] ?>%0A&bcc&cc&fs=1&tf=1">Gmail</a>
             </li>
             <li>
                 <a target="_blank" style="color:#0071ac;" href="https://www.linkedin.com/sharing/share-offsite/?url=https://rukavinaet.blog/<?php echo $row['AID'] ?>">LinkedIn</a>
@@ -186,10 +186,10 @@ align-content: center;">
                 <a target="_blank" style="color:#26c541;" href="https://wa.me/?text=<?php echo $row['AID'] ?>">Whatsapp</a>
             </li>
             <li>
-                <a target="_blank" style="color:#0081c2;" href="https://t.me/share/url?url=https://rukavinaet.blog/<?php echo $row['AID'] ?>&text=<?php echo $row['A_Title'] ?>">Telegram</a>
+                <a target="_blank" style="color:#0081c2;" href="https://t.me/share/url?url=https://rukavinaet.blog/<?php echo $row['AID'] ?>&text=<?php echo $row['ATitle'] ?>">Telegram</a>
             </li>
             <li>
-                <a target="_blank" style="color:#f24100;" href="https://www.reddit.com/submit?url=https://rukavinaet.blog/<?php echo $row['AID'] ?>&title=<?php echo $row['A_Title'] ?>">Reddit</a>
+                <a target="_blank" style="color:#f24100;" href="https://www.reddit.com/submit?url=https://rukavinaet.blog/<?php echo $row['AID'] ?>&title=<?php echo $row['ATitle'] ?>">Reddit</a>
             </li>
         </ul>
 

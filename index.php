@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET['ID'])) {
-        include 'article.php';
+        include 'view:article.php';
     
 } 
 elseif (isset($_GET['CAT'])) {

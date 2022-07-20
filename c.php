@@ -10,8 +10,8 @@ else
     $page = 1;
 }
 
-$num_per_page = 21;
-$start_from = ($page-1)*21;
+$num_per_page = 02;
+$start_from = ($page-1)*02;
 
 $ID = mysqli_real_escape_string($conn, $_GET['CAT']);
 $sql = "SELECT * FROM `blog_article` WHERE ACATID = '$ID' LIMIT $start_from,$num_per_page";
@@ -158,22 +158,29 @@ margin-block: 20px 50px;">All the Latest</p>
 
         if($page>1)
         {
-            echo "<a href='?page=".($page-1)."' class='danger'>Previous</a>";
+            echo "<a href='?page=".($page-1)."' class='danger'>< Previous</a>";
+            if($page>2){
+                echo "<a href='?page=".($page-2)."' class='danger'>".($page-2) ."</a>";
+    
+            }
+            echo "<a href='?page=".($page-1)."' class='danger'>".($page-1) ."</a>";
+        }
+        
+
+        
+        for($i=1;$i<$total_page;$i++)
+        {
+            //echo "<a href='?page=".$i."' class='btn btn-primary'>$i</a>";
         }
 
         
-        $i=1;$i<$total_page;$i++;
-        
-        
-        echo "<a href='?page=". ($page-2) ."'>". $page-2 ."</a>";
-        echo "<a href='?page=". ($page-1) ."'>". $page-1 ."</a>";
-        echo "<a href='?page=". ($page) ."'>". $page ."</a>";
-        echo "<a href='?page=". ($page+1) ."'>". $page+1 ."</a>";
-        echo "<a href='?page=". ($page+2) ."'>". $page+2 ."</a>";
-        
         if($i>$page)
         {
-            echo "<a href='?page=".($page+1)."' class='danger'>Next</a>";
+            
+            echo "<p>". $page ."</p>";
+            echo "<a href='?page=".($page+1)."' class='danger'>".($page+1) ."</a>";
+            echo "<a href='?page=".($page+2)."' class='danger'>".($page+2) ."</a>";
+            echo "<a href='?page=".($page+1)."' class='danger'>Next ></a>";
         }
 
 ?>

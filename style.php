@@ -141,10 +141,6 @@
     .mobilesmall {
         font-size: 25px;
     }
-
-
-
-    
 </style>
 <style>
     #share ul li {
@@ -305,111 +301,5 @@
         border-radius: 10px;
     }
 
-    @media all and (max-width: 1200px) {
-        .cat-title{
-            margin-inline: 0px 14px;
-        }
-        .cat-cont{
-            padding: 0px 16px;
-            width: auto;
-        }
-        .cat-content {
-
-            color: #202020;
-        }
-
-        .latestincat a {
-            display: block;
-        }
-
-        #latest-meta-title {
-            font-size: 2.2em;
-        }
-
-        .arrow {
-
-            margin-top: 10px;
-        }
-
-        #this-more-articles {
-            grid-template-columns: auto;
-        }
-        .this-article-block{
-            width: 99%;
-            margin: 10px auto;
-        }
-        
-        .this-article-block-inner {
-            margin: auto;
-
-    }
-    .this-article-content img {
-        width: 9em;
-        height: auto;
-        border-radius: 10px;
-    }
-    }
-
-    @media all and (max-width: 1000px) {
-        .article-content {
-            margin: 0px 14px;
-        }
-
-        .categegory-link-a p {
-            font-size: smaller;
-        }
-
-        .title h1 {
-            font-size: 38px;
-        }
-
-        .article-html {
-            font-size: 1em;
-
-        }
-    }
-    @media all and (max-width: 1000px) {
-        .related_stories {
-            display: flex;
-            justify-content: center;
-            font-size: 20px;
-            margin-block: 50px;
-        }
-
-        .more-articles {
-            display: flex;
-            justify-content: space-evenly;
-            padding-inline: 0px;
-            margin-bottom: 100px;
-            margin-inline: 0%;
-            width: 100%;
-            flex-direction: column;
-        }
-
-        .article-block {
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #00000040;
-            text-align: left;
-            border-radius: 20px;
-            margin: auto;
-            margin-bottom: 2em;
-        }
-
-        .mobilesmall {
-            font-size: 1.5em;
-        }
-
-
-
-        .article-block-inner {
-            padding: 10px 30px;
-            text-transform: uppercase;
-            font-size: 1em;
-        }
-
-        .article-block img {
-            width: 22em;
-        }
-    }
+   
 </style>

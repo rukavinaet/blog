@@ -10,8 +10,8 @@ else
     $page = 1;
 }
 
-$num_per_page = 02;
-$start_from = ($page-1)*02;
+$num_per_page = 21;
+$start_from = ($page-1)*21;
 
 $ID = mysqli_real_escape_string($conn, $_GET['CAT']);
 $sql = "SELECT * FROM `blog_article` WHERE ACATID = '$ID' LIMIT $start_from,$num_per_page";
@@ -128,6 +128,7 @@ $row2 = mysqli_fetch_array($result2);
 
                     </a>
                 </div>
+                <div class="top-stories"></div>
                 <div class="other-articles">
                     <p style="font-size: 2em;
 margin-block: 20px 50px;
